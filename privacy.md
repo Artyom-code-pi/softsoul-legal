@@ -1,6 +1,6 @@
 # SoftSoul Privacy Policy
 
-Last updated: 22 September 2026
+Last updated: 23 September 2026
 
 ## Who we are
 
@@ -12,6 +12,7 @@ SoftSoul is an AI companion for conversation, journalling and tracking how you f
 
 ## What we collect
 
+- How you'd like to be addressed, used only to phrase replies correctly in languages with grammatical gender.
 - **Account details:** your email address and a securely hashed password, handled by our authentication provider. We never store your password in readable form.
 - **Profile:** the name you choose and what you use SoftSoul for.
 - **Country:** the country you live in, so we can show you the right crisis support numbers.
