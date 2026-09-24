@@ -20,7 +20,7 @@ jobs:
           assert.match(privacy, /Gender preference:[\s\S]*collected only so SoftSoul can phrase replies naturally/);
           assert.ok(privacy.includes("Crisis support country:") && privacy.includes("phone\'s region setting") && privacy.includes("ISO country code"));
           assert.match(privacy, /Prefer not to say uses neutral wording/);
-          assert.match(privacy, /correct it manually in Profile/);
+          assert.doesNotMatch(privacy, /correct it manually in Profile|change it in Profile|choose a country/);
           assert.doesNotMatch(privacy, /change it in onboarding/);
           console.log('Privacy wording checks passed');
           NODE
