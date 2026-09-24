@@ -18,7 +18,7 @@ jobs:
           const assert = require('node:assert/strict');
           const privacy = fs.readFileSync('privacy.md', 'utf8');
           assert.match(privacy, /Gender preference:[\s\S]*collected only so SoftSoul can phrase replies naturally/);
-          assert.match(privacy, /Country:[\s\S]*any country you select.*ISO country code/);
+          assert.match(privacy, /Crisis support country:[\\s\\S]*phone's region setting.*ISO country code/);
           assert.match(privacy, /Prefer not to say uses neutral wording/);
           assert.match(privacy, /correct it manually in Profile/);
           assert.doesNotMatch(privacy, /change it in onboarding/);
