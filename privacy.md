@@ -42,6 +42,8 @@ To generate replies, your messages are sent to **Anthropic**. If Memory is on, m
 
 Only service providers who help us run SoftSoul: Supabase (database and authentication), Render (servers), Anthropic and OpenAI (AI processing), Expo (notification delivery), and Sentry (crash reporting, without content). We share nothing else unless required by law.
 
+Apple Push Notification service and Google Firebase Cloud Messaging — deliver notifications to your device.
+
 ## Where your information is stored
 
 Our database is in Ireland and our servers are in Germany, both in the EU. Anthropic and OpenAI may process messages in the United States. Where information leaves the UK, we rely on appropriate safeguards recognised under UK data protection law.
