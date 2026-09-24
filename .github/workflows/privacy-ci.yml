@@ -1,0 +1,26 @@
+name: SoftSoul Legal CI
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  privacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check privacy policy wording
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          const privacy = fs.readFileSync('privacy.md', 'utf8');
+          assert.match(privacy, /Gender preference:[\s\S]*collected only so SoftSoul can phrase replies naturally/);
+          assert.ok(privacy.includes("Crisis support country:") && privacy.includes("phone\'s region setting") && privacy.includes("ISO country code"));
+          assert.match(privacy, /Prefer not to say uses neutral wording/);
+          assert.match(privacy, /correct it manually in Profile/);
+          assert.doesNotMatch(privacy, /change it in onboarding/);
+          console.log('Privacy wording checks passed');
+          NODE

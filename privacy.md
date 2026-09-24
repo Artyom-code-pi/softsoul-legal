@@ -1,6 +1,6 @@
 # SoftSoul Privacy Policy
 
-Last updated: 23 September 2026
+Last updated: 24 September 2026
 
 ## Who we are
 
@@ -14,8 +14,8 @@ SoftSoul is an AI companion for conversation, journalling and tracking how you f
 
 - **Account details:** your email address and a securely hashed password, handled by our authentication provider. We never store your password in readable form.
 - **Profile:** the name you choose and what you use SoftSoul for.
-- **How you'd like to be addressed, used only to phrase replies correctly in languages with grammatical gender.
-- **Country:** the country you live in, so we can show you the right crisis support numbers.
+- **Gender preference:** Female, Male or Prefer not to say, collected only so SoftSoul can phrase replies naturally in languages with grammatical gender. Prefer not to say uses neutral wording.
+- **Crisis support country:** taken automatically from your phone's region setting (not GPS), stored as an ISO country code and checked again when you open the app. You can correct it manually in Profile; once saved, your choice stays fixed unless you change it. If your phone does not provide a recognised region, we use general crisis resources.
 - **Conversations:** messages you send and SoftSoul's replies.
 - **Journal entries and mood entries**, including any notes you add.
 - **Memories:** if you turn Memory on, short facts drawn from your conversations. Memory is off by default and you can view or delete any memory at any time.
