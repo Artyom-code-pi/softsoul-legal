@@ -1,6 +1,6 @@
 # SoftSoul Privacy Policy
 
-Last updated: 24 September 2026
+Last updated: 25 September 2026
 
 ## Who we are
 
@@ -18,7 +18,7 @@ SoftSoul is an AI companion for conversation, journalling and tracking how you f
 - **Crisis support country:** taken automatically from your phone's region setting (not GPS), stored as an ISO country code and checked again when you open the app. If your phone does not provide a recognised region, we use general crisis resources.
 - **Conversations:** messages you send and SoftSoul's replies.
 - **Journal entries and mood entries**, including any notes you add.
-- **Memories:** if you turn Memory on, short facts drawn from your conversations. Memory is off by default and you can view or delete any memory at any time.
+- **Memories:** if you turn Memory on, short facts drawn from your conversations. Memory is off by default. See the Memories section below for details and controls.
 - **Safety records:** if a conversation suggests you may be at risk of harming yourself, we keep a record of how SoftSoul responded so we can check our safety features work.
 - **Notification settings:** if you turn on check-ins, a device token so we can send them. Check-ins are off by default.
 - **Usage information:** when you open the app, and how much AI processing each conversation used. This contains no conversation content.
@@ -27,6 +27,18 @@ SoftSoul is an AI companion for conversation, journalling and tracking how you f
 ## Sensitive information
 
 Conversations with SoftSoul may include information about your health or wellbeing. We only process this with your explicit consent, which you give when you create your account. You can withdraw consent at any time by deleting your account.
+
+## Memories
+
+If you turn Memory on, Soul may remember things you tell it about people in your life, including health information such as an operation or an illness. This helps make your conversations more personal.
+
+This information comes only from what you say. Like your messages, it is processed by the service providers listed below so Soul can reply, and we never sell it or use it for advertising.
+
+Dated health events are deleted automatically 30 days after their date.
+
+You can view and delete any memory, or all memories, in Manage Memories. You can also ask Soul to forget a person.
+
+Soul never saves memories about suicide, self-harm, eating disorders or abuse.
 
 ## How we use your information
 
