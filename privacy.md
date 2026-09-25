@@ -32,7 +32,7 @@ Conversations with SoftSoul may include information about your health or wellbei
 
 If you turn Memory on, Soul may remember things you tell it about people in your life, including health information such as an operation or an illness. This helps make your conversations more personal.
 
-This information comes only from what you say. We never share it or use it for advertising.
+This information comes only from what you say. Like your messages, it is processed by the service providers listed below so Soul can reply, and we never sell it or use it for advertising.
 
 Dated health events are deleted automatically 30 days after their date.
 
