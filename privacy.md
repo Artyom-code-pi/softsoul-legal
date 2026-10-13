@@ -22,6 +22,7 @@ SoftSoul is an AI companion for conversation, journalling and tracking how you f
 - **Safety records:** if a conversation suggests you may be at risk of harming yourself, we keep a record of how SoftSoul responded so we can check our safety features work.
 - **Voice calls:** when you talk to Soul by voice, your speech is streamed live so Soul can hear and answer. We save the words of the call (a transcript) in your chat, like typed messages. We do not keep recordings of your voice.
 - **Ratings and reactions:** if you rate a reply or react to one with an emoji, we keep that rating so we can improve Soul.
+- **Help & contact:** if you ask the Help assistant a question, we do not save the question or the answer. If you send us a message with "Contact us", we keep your message, the email address you gave for our reply, the topic, the app information you chose to include (app version, phone type, language) and, if you used the Help assistant first, that short help chat so you do not have to repeat yourself. We never include your Soul chats, memories or journal.
 - **Your city:** if you tell SoftSoul your city (for example in the get-to-know quiz), we use it to look up the local weather so Soul can mention it. Otherwise we use your phone's time zone.
 - **Calendar (optional):** if you switch on Calendar in Connections, the app sends the title, start and end time of your events for the next 7 days. Notes, places and the people invited never leave your phone. Routine daily and weekly repeats and birthday or subscribed calendars are skipped.
 - **Music and favourites (optional):** if you connect Apple Music or Spotify, we receive what you recently played, play most and recently added, and SoftSoul turns it into a few short taste memories (for example "loves Ukrainian rock"). If you pick favourite films, TV shows or books, we keep your picks.
@@ -63,7 +64,7 @@ SoftSoul uses outside AI services to reply to you. We only send them what they n
 
 | Service | What it receives | Why |
 | --- | --- | --- |
-| **Anthropic** (Claude) | Your messages, the words of your calls, the memories and context Soul uses (such as your name, today's chat, calendar events and the weather) | Soul's text replies, saving memories, check-in messages, the safety check on each message, and your weekly summary (only the parts you allowed) |
+| **Anthropic** (Claude) | Your messages, the words of your calls, the memories and context Soul uses (such as your name, today's chat, calendar events and the weather) | Soul's text replies, saving memories, check-in messages, the safety check on each message, your weekly summary (only the parts you allowed), and answering your questions in the Help assistant (only the question and the last few help messages, never your chats or memories) |
 | **OpenAI** | During voice calls: your voice, and the same context Soul uses for text. Occasionally messages, if a memory needs a backup check | Voice calls (hearing, thinking and speaking) and Soul's spoken voice |
 | **LiveKit** | Live call audio | Carrying the call between your phone and Soul |
 | **Deepgram** and **Cartesia** (through LiveKit) | Live call audio and Soul's spoken words, in some calls | Turning speech into text and text into speech |
@@ -77,6 +78,7 @@ These companies process your information to provide their service to us and may 
 Only service providers who help us run SoftSoul:
 
 - **Supabase** (database and authentication) and **Render** (servers)
+- **Resend** (email delivery): when you send a message with "Contact us", it carries that message to our support inbox, which is a Gmail account
 - **Anthropic, OpenAI, LiveKit, Deepgram and Cartesia** (AI processing, see above)
 - **Expo, Apple Push Notification service and Google Firebase Cloud Messaging** (delivering notifications)
 - **Sentry** (crash reports, without conversation content)
@@ -87,11 +89,11 @@ We share nothing else unless required by law.
 
 ## Where your information is stored
 
-Our database is in Ireland and our servers are in Germany, both in the EU. Our AI and voice providers (Anthropic, OpenAI, LiveKit, Deepgram and Cartesia) may process information in the United States and other countries. Where information leaves the UK, we rely on appropriate safeguards recognised under UK data protection law.
+Our database is in Ireland and our servers are in Germany, both in the EU. Our AI and voice providers (Anthropic, OpenAI, LiveKit, Deepgram and Cartesia) and our email provider (Resend) may process information in the United States and other countries. Where information leaves the UK, we rely on appropriate safeguards recognised under UK data protection law.
 
 ## How long we keep it
 
-We keep your information while your account exists. Detailed safety records are anonymised after 30 days. Weekly summaries are kept until you delete them with your account. Calendar events are deleted 4 days after they end, and all of them when you switch Calendar off. Disconnecting Apple Music or Spotify deletes what we received from it and the taste memories made from it. When you delete your account, everything is permanently removed after a 7-day grace period. Limited copies may remain temporarily in backups or service providers' logs until their normal retention periods end.
+We keep your information while your account exists. Detailed safety records are anonymised after 30 days. Weekly summaries are kept until you delete them with your account. Messages you send with "Contact us" are kept while your account exists and are deleted with it; the copy in our support inbox is deleted when we no longer need it, normally within 12 months. Calendar events are deleted 4 days after they end, and all of them when you switch Calendar off. Disconnecting Apple Music or Spotify deletes what we received from it and the taste memories made from it. When you delete your account, everything is permanently removed after a 7-day grace period. Limited copies may remain temporarily in backups or service providers' logs until their normal retention periods end.
 
 ## Deleting your account
 
