@@ -1,6 +1,6 @@
 # SoftSoul Privacy Policy
 
-Last updated: 12 October 2026
+Last updated: 13 October 2026
 
 ## Who we are
 
@@ -45,7 +45,13 @@ You can view and delete any memory, or all memories, in Manage Memories. You can
 
 Soul never saves memories about suicide, self-harm, eating disorders or abuse.
 
-## How we use your information
+## Your week (weekly summary)
+
+Every Sunday evening SoftSoul prepares a short summary of your week, which only you can see in the app. It always uses your mood entries for that week; this is worked out on our server, without AI.
+
+Only if you switch them on (in setup or in Profile → Your week, both off by default), it can also use that week's messages you wrote to Soul and/or your journal entries and mood notes. They are sent to Anthropic once a week to write a few sentences about how your week went. You can switch either one off at any time; this also removes what was written from it in past summaries.
+
+
 
 To provide SoftSoul's features; to keep conversations safe, including directing you to real help if you may be at risk; to understand how SoftSoul is used and what it costs to run; and to fix problems.
 
@@ -57,7 +63,7 @@ SoftSoul uses outside AI services to reply to you. We only send them what they n
 
 | Service | What it receives | Why |
 | --- | --- | --- |
-| **Anthropic** (Claude) | Your messages, the words of your calls, the memories and context Soul uses (such as your name, today's chat, calendar events and the weather) | Soul's text replies, saving memories, check-in messages, and the safety check on each message |
+| **Anthropic** (Claude) | Your messages, the words of your calls, the memories and context Soul uses (such as your name, today's chat, calendar events and the weather) | Soul's text replies, saving memories, check-in messages, the safety check on each message, and your weekly summary (only the parts you allowed) |
 | **OpenAI** | During voice calls: your voice, and the same context Soul uses for text. Occasionally messages, if a memory needs a backup check | Voice calls (hearing, thinking and speaking) and Soul's spoken voice |
 | **LiveKit** | Live call audio | Carrying the call between your phone and Soul |
 | **Deepgram** and **Cartesia** (through LiveKit) | Live call audio and Soul's spoken words, in some calls | Turning speech into text and text into speech |
@@ -85,7 +91,7 @@ Our database is in Ireland and our servers are in Germany, both in the EU. Our A
 
 ## How long we keep it
 
-We keep your information while your account exists. Detailed safety records are anonymised after 30 days. Calendar events are deleted 4 days after they end, and all of them when you switch Calendar off. Disconnecting Apple Music or Spotify deletes what we received from it and the taste memories made from it. When you delete your account, everything is permanently removed after a 7-day grace period. Limited copies may remain temporarily in backups or service providers' logs until their normal retention periods end.
+We keep your information while your account exists. Detailed safety records are anonymised after 30 days. Weekly summaries are kept until you delete them with your account. Calendar events are deleted 4 days after they end, and all of them when you switch Calendar off. Disconnecting Apple Music or Spotify deletes what we received from it and the taste memories made from it. When you delete your account, everything is permanently removed after a 7-day grace period. Limited copies may remain temporarily in backups or service providers' logs until their normal retention periods end.
 
 ## Deleting your account
 
