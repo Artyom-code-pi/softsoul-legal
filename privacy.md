@@ -1,6 +1,6 @@
 # SoftSoul Privacy Policy
 
-Last updated: 13 October 2026
+Last updated: 20 October 2026
 
 ## Who we are
 
@@ -25,10 +25,11 @@ SoftSoul is an AI companion for conversation, journalling and tracking how you f
 - **Voice calls:** when you talk to Soul by voice, your speech is streamed live so Soul can hear and answer. We save the words of the call (a transcript) in your chat, like typed messages. We do not keep recordings of your voice.
 - **Ratings and reactions:** if you rate a reply or react to one with an emoji, we keep that rating so we can improve Soul.
 - **Help & contact:** if you ask the Help assistant a question, we do not save the question or the answer. If you send us a message with "Contact us", we keep your message, the email address you gave for our reply, the topic, the app information you chose to include (app version, phone type, language) and, if you used the Help assistant first, that short help chat so you do not have to repeat yourself. We never include your Soul chats, memories or journal.
-- **Your city:** if you tell SoftSoul your city (for example in the get-to-know quiz), we use it to look up the local weather so Soul can mention it. Otherwise we use your phone's time zone.
+- **Your city:** if you tell SoftSoul your city (for example in the get-to-know quiz), we use it to look up the local weather so Soul can mention it. If you give a UK postcode, only its first half (the area, for example RG26) is used, never the full postcode. Otherwise we use your phone's time zone.
 - **Calendar (optional):** if you switch on Calendar in Connections, the app sends the title, start and end time of your events for the next 7 days. Notes, places and the people invited never leave your phone. Routine daily and weekly repeats and birthday or subscribed calendars are skipped.
 - **Music and favourites (optional):** if you connect Apple Music or Spotify, we receive what you recently played, play most and recently added, and SoftSoul turns it into a few short taste memories (for example "loves Ukrainian rock"). If you pick favourite films, TV shows or books, we keep your picks.
 - **Notification settings:** a device token so we can send check-ins and reminders. When you finish setting up SoftSoul, we ask for notification permission and switch on check-ins and the mood reminder. You can change or switch them off in Profile at any time.
+- **Trying Soul before signing up:** you can chat with Soul as a guest before making an account. Guest chats are kept like any other chat. If you don't make an account, the guest account and its chats are deleted after 7 days.
 - **Usage information:** when you open the app, and how much AI processing each conversation used. This contains no conversation content.
 - **Crash reports:** technical error information, which we deliberately strip of all conversation content and any identifier.
 
@@ -38,7 +39,7 @@ Conversations with SoftSoul may include information about your health or wellbei
 
 ## Memories
 
-If you turn Memory on, Soul may remember things you tell it about people in your life, including health information such as an operation or an illness. This helps make your conversations more personal.
+If you turn Memory on, Soul may remember things you tell it about people in your life, including health information such as an operation or an illness. This can include your children, for example their names, ages and birthdays, if you mention them. This helps make your conversations more personal.
 
 This information comes only from what you say. Like your messages, it is processed by the service providers listed below so Soul can reply, and we never sell it or use it for advertising.
 
@@ -54,7 +55,7 @@ Every Sunday evening SoftSoul prepares a short summary of your week, which only 
 
 Only if you switch them on (in setup or in Profile → Your week, both off by default), it can also use that week's messages you wrote to Soul and/or your journal entries and mood notes. They are sent to Anthropic once a week to write a few sentences about how your week went. You can switch either one off at any time; this also removes what was written from it in past summaries.
 
-
+## Why we use your information
 
 To provide SoftSoul's features; to keep conversations safe, including directing you to real help if you may be at risk; to understand how SoftSoul is used and what it costs to run; and to fix problems.
 
@@ -85,13 +86,21 @@ Only service providers who help us run SoftSoul:
 - **Expo, Apple Push Notification service and Google Firebase Cloud Messaging** (delivering notifications)
 - **Sentry** (crash reports, without conversation content)
 - **Open-Meteo** (weather): receives only a city name or time zone, never your account or messages
+- **postcodes.io** (UK postcode areas): receives only the first half of a UK postcode, if you gave one, never your account or messages
+- **Amazon Web Services** (key management): looks after the master keys that protect your encryption keys; it never receives your messages or other content
 - **Apple Music or Spotify**, only if you connect them: we read your listening from them; we send them nothing about your chats
 
 We share nothing else unless required by law.
 
 ## Where your information is stored
 
-Our database is in Ireland and our servers are in Germany, both in the EU. Our AI and voice providers (Anthropic, OpenAI, LiveKit, Deepgram and Cartesia) and our email provider (Resend) may process information in the United States and other countries. Where information leaves the UK, we rely on appropriate safeguards recognised under UK data protection law.
+Our database is in Ireland, our servers are in Germany and our encryption keys are managed in Sweden, all in the EU. Our AI and voice providers (Anthropic, OpenAI, LiveKit, Deepgram and Cartesia) and our email provider (Resend) may process information in the United States and other countries. Where information leaves the UK, we rely on appropriate safeguards recognised under UK data protection law.
+
+## How we keep it safe
+
+Your conversations, journal, mood notes, memories, calendar event titles and weekly summaries are stored encrypted, each account with its own key. The keys that protect them are themselves locked by a key management service (Amazon Web Services), so someone with access to our database alone cannot read them, and our staff do not read them. Other details, such as your name, city and "Contact us" messages, are protected by our normal database security but not by this extra encryption.
+
+This is not end-to-end encryption. Our server unlocks your information when it is needed to provide SoftSoul, for example to write Soul's reply, and the AI services listed above receive what they need to do their job.
 
 ## How long we keep it
 
@@ -112,6 +121,8 @@ You can also complain to the Information Commissioner's Office at ico.org.uk.
 ## Age
 
 SoftSoul is for people aged 18 and over. We do not knowingly collect information from anyone under 18.
+
+As part of the safety check on each message and call, SoftSoul looks for clear signs that the person is under 18, such as stating their age or school year. If it finds one, the account is paused, and it is deleted after 30 days unless we confirm it was a mistake. For this we keep only how clear the sign was, the type of reason and the time, never the message itself. If your account was paused by mistake, email us.
 
 ## If you are in crisis
 
