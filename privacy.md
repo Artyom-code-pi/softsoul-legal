@@ -4,7 +4,7 @@ Last updated: 13 October 2026
 
 ## Who we are
 
-SoftSoul is operated by Artyom Hudolij, an individual based in the United Kingdom, who is the data controller for your information. Contact: softsoul.app@gmail.com
+SoftSoul is operated by Artyom Hudolij, an individual based in the United Kingdom, who is the data controller for your information. Contact: softsoul.app@gmail.com SoftSoul is registered with the UK Information Commissioner's Office (ICO) as a data controller, registration number ZC279305.
 
 ## What SoftSoul is
 
