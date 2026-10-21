@@ -29,46 +29,37 @@ jobs:
             exit 1
           fi
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Setup EAS
-        uses: expo/expo-github-action@v8
-        with:
-          eas-version: 24.7.0
-          token: ${{ secrets.EXPO_TOKEN }}
-
       - name: Find newest finished Android build
         id: find
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
-          mkdir -p eas-project && cd eas-project
-          cat > app.json <<'JSON'
-          {
-            "expo": {
-              "name": "SoftSoul",
-              "slug": "softsoul-mobile",
-              "owner": "artyom_2026",
-              "extra": { "eas": { "projectId": "bd5abbb6-a2e3-426f-8689-974ab9f8f79a" } }
-            }
-          }
-          JSON
-          eas build:list --platform android --status finished --build-profile preview \
-            --limit 1 --json --non-interactive > ../build.json
-          cd ..
-          ID=$(jq -r '.[0].id // empty' build.json)
-          URL=$(jq -r '.[0].artifacts.buildUrl // .[0].artifacts.applicationArchiveUrl // empty' build.json)
-          VER=$(jq -r '.[0].appVersion // ""' build.json)
-          NUM=$(jq -r '.[0].appBuildVersion // ""' build.json)
+          # Ask Expo's API directly (no EAS CLI: this repo isn't the app project).
+          QUERY='query($appId: String!) { app { byId(appId: $appId) { builds(offset: 0, limit: 10, filter: { platform: ANDROID, status: FINISHED }) { id appVersion appBuildVersion buildProfile artifacts { buildUrl applicationArchiveUrl } } } } }'
+          BODY=$(jq -n --arg q "$QUERY" '{query: $q, variables: {appId: "bd5abbb6-a2e3-426f-8689-974ab9f8f79a"}}')
+          curl -sS https://api.expo.dev/graphql \
+            -H "Authorization: Bearer $EXPO_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$BODY" > build.json || { echo "::error::Could not reach Expo API"; exit 1; }
+          if jq -e '.errors' build.json >/dev/null; then
+            echo "::error::Expo API error: $(jq -c '.errors' build.json | head -c 600)"
+            exit 1
+          fi
+          # Newest APK build from the "preview" profile (the test build); else newest with a URL.
+          PICK=$(jq -c '[.data.app.byId.builds[] | select((.artifacts.buildUrl // .artifacts.applicationArchiveUrl // "") | test("\\.apk$"))] as $apks
+            | ([$apks[] | select(.buildProfile == "preview")][0] // $apks[0])' build.json)
+          ID=$(echo "$PICK" | jq -r '.id // empty')
+          URL=$(echo "$PICK" | jq -r '.artifacts.buildUrl // .artifacts.applicationArchiveUrl // empty')
+          VER=$(echo "$PICK" | jq -r '.appVersion // ""')
+          NUM=$(echo "$PICK" | jq -r '.appBuildVersion // ""')
           if [ -z "$ID" ] || [ -z "$URL" ]; then
-            echo "::error::No finished Android preview build found."
+            echo "::error::No finished Android APK build found. Builds seen: $(jq -c '[.data.app.byId.builds[] | {p: .buildProfile, u: (.artifacts.buildUrl // "")[-40:]}]' build.json | head -c 600)"
             exit 1
           fi
           echo "id=$ID" >> "$GITHUB_OUTPUT"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "label=$VER ($NUM)" >> "$GITHUB_OUTPUT"
-          echo "Newest build: $ID $VER ($NUM)"
+          echo "::notice::Newest Android build: $ID $VER ($NUM)"
 
       - name: Skip if already published
         id: check
