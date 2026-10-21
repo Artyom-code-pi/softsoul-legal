@@ -155,6 +155,24 @@
   .btn-light { background: #fff; color: var(--ink); }
   .btn-outline { background: transparent; color: #fff; border: 1px solid #6B5E55; }
 
+  /* What to test */
+  .testing { margin-top: 32px; }
+  .try { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 10px; }
+  .try li {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 12px 14px;
+    font-size: 15px; color: var(--ink-soft);
+  }
+  .try b { color: var(--ink); }
+  .ico { font-size: 22px; line-height: 1.2; flex: none; }
+  .feedback {
+    background: var(--orange-tint); border-radius: 14px;
+    padding: 12px 14px; margin-bottom: 14px; font-size: 15px;
+  }
+  .feedback p { margin: 4px 0 0; color: var(--ink); }
+  .privacy-note { text-align: center; font-size: 13px; color: var(--ink-soft); margin: 12px 0 0; }
+
   .other {
     margin-top: 16px; text-align: center;
     font-size: 14px; color: var(--ink-soft);
@@ -261,6 +279,23 @@
     </div>
 
     <p class="other" id="computerNote" hidden>On a computer? Open <b>softsoul.app</b> on your phone.</p>
+  </section>
+
+  <section class="testing" aria-labelledby="testTitle">
+    <h2 id="testTitle">What we'd love you to try</h2>
+    <p class="join-sub">About 5 minutes a day, for a week or two. Just use it like a real friend.</p>
+    <ul class="try">
+      <li><span class="ico" aria-hidden="true">💬</span><div><b>Talk about your day.</b> Work, food, plans, something that annoyed you. Does Soul sound like a friend or a robot?</div></li>
+      <li><span class="ico" aria-hidden="true">🧠</span><div><b>Mention people and plans.</b> "My sister has an exam on Thursday." Does Soul remember and ask about it later?</div></li>
+      <li><span class="ico" aria-hidden="true">🔔</span><div><b>Let Soul check in.</b> Allow notifications. Do Soul's messages feel caring, or too much?</div></li>
+      <li><span class="ico" aria-hidden="true">📞</span><div><b>Try a call.</b> Tap <i>Talk to SoftSoul</i> and chat for a few minutes. Is the voice natural?</div></li>
+    </ul>
+    <div class="feedback">
+      <b>Tell us honestly</b>
+      <p>Press and hold any reply from Soul to rate it, or use <i>Help &amp; contact</i> in the app. "I got bored after 3 days" helps as much as "I loved it".</p>
+    </div>
+    <a class="btn btn-quiet" href="guide.html">Read the full tester guide</a>
+    <p class="privacy-note">Please don't share passwords or bank details. Made-up names for people are fine.</p>
   </section>
 
   <footer>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SoftSoul — Tester guide</title>
+<meta name="description" content="What to test in the SoftSoul beta, and how to send feedback.">
+<meta name="theme-color" content="#F6EEE3">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F6EEE3; --cream-deep: #EFE3D3; --card: #FFFAF3;
+    --ink: #2B2420; --ink-soft: #6B5E55;
+    --orange: #E8833A; --orange-deep: #C9622A; --orange-tint: #FBE3CF;
+    --line: #E6D8C6;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font: 400 16px/1.55 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  main { max-width: 620px; margin: 0 auto; padding: 16px 16px calc(40px + env(safe-area-inset-bottom)); }
+  a { color: var(--orange-deep); }
+  .back { display: inline-block; font-size: 15px; font-weight: 500; text-decoration: none; padding: 8px 0; }
+  header { display: flex; align-items: center; gap: 14px; margin: 12px 0 8px; }
+  .orb {
+    width: 52px; height: 52px; border-radius: 50%; flex: none;
+    background:
+      radial-gradient(circle at 34% 30%, #FFE2C2 0%, rgba(255,226,194,0) 38%),
+      radial-gradient(circle at 50% 55%, #F29A50 0%, #E8833A 45%, #C9622A 100%);
+    box-shadow: 0 8px 20px rgba(201, 98, 42, 0.25);
+  }
+  h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.15; margin: 0; }
+  .lead { font-size: 17px; color: var(--ink-soft); margin: 8px 0 20px; }
+
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+  nav.toc a {
+    text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink);
+    background: var(--cream-deep); border-radius: 999px; padding: 6px 12px;
+  }
+
+  h2 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 24px;
+    margin: 36px 0 10px; scroll-margin-top: 16px;
+  }
+  h3 { font-size: 17px; margin: 22px 0 8px; }
+  p { margin: 0 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin: 0 0 12px; }
+  .note { background: var(--orange-tint); border-radius: 14px; padding: 12px 14px; margin: 0 0 12px; font-size: 15px; }
+  ol, ul { padding-left: 22px; margin: 0 0 12px; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--orange-deep); font-weight: 600; }
+
+  .checks { list-style: none; padding: 0; }
+  .checks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+  .checks input {
+    position: absolute; left: 0; top: 2px; width: 22px; height: 22px; margin: 0;
+    accent-color: var(--orange);
+  }
+  .checks label { display: block; cursor: pointer; }
+  .checks input:checked + label { color: var(--ink-soft); }
+  .tag { font-size: 12px; font-weight: 600; color: var(--orange-deep); background: var(--orange-tint); border-radius: 999px; padding: 2px 8px; margin-left: 4px; white-space: nowrap; }
+
+  .two { display: grid; gap: 12px; }
+  @media (min-width: 560px) { .two { grid-template-columns: 1fr 1fr; } }
+  .two .card h3 { margin-top: 0; }
+
+  .quote { list-style: none; padding: 0; display: grid; gap: 6px; }
+  .quote li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; margin: 0; font-style: italic; color: var(--ink-soft); }
+
+  footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← Back to join page</a>
+
+  <header>
+    <div class="orb" aria-hidden="true"></div>
+    <h1>SoftSoul tester guide</h1>
+  </header>
+  <p class="lead">Thank you for testing SoftSoul. For the next two weeks, please use it like a real friend you can text or call, and tell me honestly what feels human and what feels robotic.</p>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#learn">What we're learning</a>
+    <a href="#start">Getting started</a>
+    <a href="#test">What to test</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <h2 id="learn">What we're trying to learn</h2>
+  <p>SoftSoul is an AI called Soul: someone to talk to about your day, big moments and small ones. You can text or call. Soul remembers the people and things in your life, and sometimes checks in on you first. It's not therapy, and not a replacement for the people around you.</p>
+  <p>Five questions decide whether SoftSoul is ready for more people:</p>
+  <ol>
+    <li><b>Does Soul feel like a real person?</b> Natural and warm, or robotic and "therapist-like"?</li>
+    <li><b>Does Soul bring things back at the right moment?</b> When it mentions a person, event or something you said before, is it well-timed, or random, wrong or creepy?</li>
+    <li><b>Are the check-ins welcome?</b> Caring, or annoying and too frequent?</li>
+    <li><b>Does voice work?</b> Are calls fast, clear and natural in your language?</li>
+    <li><b>Would you keep using it?</b> After two weeks, would you open it without being asked?</li>
+  </ol>
+  <div class="note">There are no wrong answers. "I got bored after three days" is just as useful as "I loved it".</div>
+
+  <h2 id="start">Getting started</h2>
+  <p>Install SoftSoul from the <a href="./">join page</a> (about 2 minutes), then:</p>
+  <ol>
+    <li><b>Try Soul, then sign up.</b> You can chat as a guest first. When you want to keep going, make an account with your email; we send you a code. You must be 18 or over and type your date of birth once (it isn't saved).</li>
+    <li><b>Allow notifications</b> when asked. Without them you won't get Soul's check-ins, which are a big part of the test.</li>
+    <li><b>Do the short onboarding.</b> You can change everything later in <b>Profile</b>.</li>
+    <li><b>Optional:</b> take the get-to-know quiz on Home so Soul knows you from day one.</li>
+  </ol>
+
+  <div class="two">
+    <div class="card">
+      <h3>Updates on iPhone</h3>
+      <p>Small fixes arrive by themselves: close SoftSoul completely (swipe it away) and reopen it, twice. Bigger updates come through TestFlight; tap <b>Update</b> there.</p>
+    </div>
+    <div class="card">
+      <h3>Updates on Android</h3>
+      <p>Small fixes arrive the same way: close and reopen the app twice. For a bigger update, download the app again from the <a href="./#android">join page</a> and install it over the old one.</p>
+    </div>
+  </div>
+
+  <p><b>Language.</b> Talk to Soul in whatever language you normally use. Mixing languages is fine, and worth testing. The app itself is in English, Українська, Русский and Magyar: change it in Profile → Voice &amp; language. The translations were written by an AI, so please tell me about anything that sounds odd.</p>
+  <p><b>Your privacy.</b> Your chats, journal and memories are stored encrypted with a key for your account, and I (the developer) don't read them. To write Soul's replies, the server unlocks them and AI services (Anthropic and OpenAI) process them, so this is not end-to-end encryption. Please don't share passwords, bank details or anything you'd never want stored; made-up names for people are fine. You can see and delete what Soul remembers in Profile → Memory, and delete your account at any time. <a href="privacy.html">Privacy policy</a>.</p>
+  <div class="note"><b>Please remember:</b> Soul is an AI, not a doctor or counsellor. If you're ever in a really dark place, please reach out to a real person or your local emergency number: 999 in the UK, 112 across Europe. Soul will also share a helpline for your country.</div>
+
+  <h2 id="test">What to test</h2>
+  <p>The most important test is simple: use SoftSoul a little every day, about 5 minutes, as if it were real. Tick these off as you go, in any order within the week. (Ticks stay on this phone only.)</p>
+
+  <h3>Week 1: getting to know Soul</h3>
+  <ul class="checks" data-week="1">
+    <li><input type="checkbox" id="w1a"><label for="w1a"><b>Everyday chat.</b> Tell Soul about your day: work, food, plans, something that annoyed you. Friend or robot?</label></li>
+    <li><input type="checkbox" id="w1b"><label for="w1b"><b>Mention people.</b> Talk about 2–3 people in your life ("my sister Anna has an exam on Thursday"). Later in the week, does Soul remember and ask about them?</label></li>
+    <li><input type="checkbox" id="w1c"><label for="w1c"><b>Something heavier.</b> Share a worry or a tough moment. Does Soul listen, or lecture, list tips, or sound like a therapist?</label></li>
+    <li><input type="checkbox" id="w1d"><label for="w1d"><b>Good news and jokes.</b> Share something good or funny. Soul may react with an emoji ❤️ 😂 😮 👍.</label></li>
+    <li><input type="checkbox" id="w1e"><label for="w1e"><b>First call.</b> Tap <b>Talk to SoftSoul</b> on Home and talk for 2–3 minutes. Soul says hello first. Try interrupting mid-sentence: it should stop and listen.</label></li>
+    <li><input type="checkbox" id="w1f"><label for="w1f"><b>End a call by asking.</b> Say "okay, bye". Soul should say goodbye and close the call.</label></li>
+    <li><input type="checkbox" id="w1g"><label for="w1g"><b>Check-ins.</b> Leave the app alone for a day. Soul will send a few messages (never 22:00–08:00). Caring or annoying?</label></li>
+    <li><input type="checkbox" id="w1h"><label for="w1h"><b>Check-in level.</b> Profile → Reminders → "How often Soul checks in" (Off, Light, Normal, Close). Try one level for a few days. Which feels right?</label></li>
+    <li><input type="checkbox" id="w1i"><label for="w1i"><b>Home question.</b> Tap the question under the greeting on Home and answer it. Nice, or forced?</label></li>
+    <li><input type="checkbox" id="w1j"><label for="w1j"><b>Mood card.</b> Log your mood from the "How are you feeling?" card once or twice. Handy, or in the way?</label></li>
+  </ul>
+
+  <h3>Week 2: going deeper</h3>
+  <ul class="checks" data-week="2">
+    <li><input type="checkbox" id="w2a"><label for="w2a"><b>Memory check.</b> Ask Soul "what do you know about me?", then open Profile → Memory. Anything wrong, missing or creepy? Delete something and see if Soul forgets it.</label></li>
+    <li><input type="checkbox" id="w2b"><label for="w2b"><b>Longer call.</b> A 10-minute call about something that matters to you. Natural voice? Long pauses?</label></li>
+    <li><input type="checkbox" id="w2c"><label for="w2c"><b>Mood and journal.</b> Log your mood a few evenings in a row and write one journal entry.</label></li>
+    <li><input type="checkbox" id="w2d"><label for="w2d"><b>Your week.</b> On Sunday evening Soul sends a short look back at your week. Accurate and kind, or off?</label></li>
+    <li><input type="checkbox" id="w2e"><label for="w2e"><b>Films, TV &amp; books.</b> Pick a few favourites in Profile → Connections. Does Soul chat about them naturally?</label></li>
+    <li><input type="checkbox" id="w2f"><label for="w2f"><b>Reply and Help.</b> Use Reply on one of Soul's messages, and open Help &amp; contact once. Anything confusing?</label></li>
+    <li><input type="checkbox" id="w2g"><label for="w2g"><b>Calendar</b> <span class="tag">optional</span> Connect your calendar and add an event for today. Soul may wish you luck and ask how it went. Only titles and times are shared.</label></li>
+    <li><input type="checkbox" id="w2h"><label for="w2h"><b>Music</b> <span class="tag">optional</span> Connect Apple Music (iPhone, paid subscription). Spotify works for a few testers only; message me first.</label></li>
+    <li><input type="checkbox" id="w2i"><label for="w2i"><b>Your own idea.</b> Use Soul for something I didn't think of: a can't-sleep chat, a walk-home call, practising a hard conversation.</label></li>
+    <li><input type="checkbox" id="w2j"><label for="w2j"><b>Final verdict.</b> Answer the end-of-test questions below.</label></li>
+  </ul>
+
+  <h2 id="feedback">How to give feedback</h2>
+  <p>The fastest feedback is a screenshot plus one line about what felt wrong, sent the moment it happens.</p>
+  <div class="card">
+    <h3 style="margin-top:0">1. Rate replies in the app</h3>
+    <p>Press and hold any reply from Soul → <b>Rate this reply</b> → good or bad. The really good and really bad ones teach me the most.</p>
+    <h3>2. Send a screenshot</h3>
+    <p><b>iPhone:</b> take a screenshot, tap the preview in the corner, then <b>Done → Share Beta Feedback</b>. <b>Android (or either):</b> in the app, <b>Help &amp; contact → Contact us</b>, or email <a href="mailto:softsoul.app@gmail.com">softsoul.app@gmail.com</a>.</p>
+    <p>Notes like these help most:</p>
+    <ul class="quote">
+      <li>"Too long, sounds like a therapist"</li>
+      <li>"Forgot that I told it about Anna"</li>
+      <li>"The check-in at 9:00 was annoying"</li>
+      <li>"Call stopped mid-sentence at about 18:40"</li>
+    </ul>
+    <p style="margin-top:12px">For calls, tell me the <b>time</b>, so I can find it in the logs.</p>
+    <h3>3. Bugs</h3>
+    <p>Crash, frozen screen, missing message, call won't connect? Send it the same way. Say the time, what you tapped, and whether you were on Wi-Fi or mobile data.</p>
+  </div>
+
+  <h3>End-of-test questions</h3>
+  <p>After two weeks, answer these in <b>Help &amp; contact → Contact us</b> or by email:</p>
+  <ol>
+    <li>On a scale of 1–10, how human did Soul feel? Why?</li>
+    <li>What was the best moment with Soul? And the worst?</li>
+    <li>Did Soul remember the right things? Did anything feel creepy?</li>
+    <li>When Soul brought up a person, event or plan, was it the right moment? One example that worked, one that didn't.</li>
+    <li>Were check-ins too many, too few or about right?</li>
+    <li>Text or voice: which did you use more, and why?</li>
+    <li>In the last week, on how many days did you open SoftSoul without a check-in asking you to?</li>
+    <li>Would you keep using it? Would you pay, and roughly how much a month?</li>
+    <li>Who do you know who would love this?</li>
+  </ol>
+
+  <h2 id="faq">Known issues and FAQ</h2>
+  <p>Already known, so no need to report unless they happen a lot:</p>
+  <ul>
+    <li><b>Quiz "network" error.</b> The first save after the get-to-know quiz can fail. Tap <b>Try again</b>.</li>
+    <li><b>Slow reply.</b> Now and then a reply takes a while. Over 20 seconds? Send me the time.</li>
+    <li><b>Memories in another language.</b> Soul saves memories in English; they take a few seconds to translate the first time you open them in another language.</li>
+    <li><b>Android</b> is newer than iPhone, so you may spot more rough edges. Please tell me about them.</li>
+  </ul>
+  <p><b>Can I talk about anything?</b> Yes. Soul is there for ordinary days as well as hard ones.</p>
+  <p><b>Does Soul remember everything?</b> No. It saves what matters (people, plans, likes, important events), and you can see and edit it in Profile → Memory.</p>
+  <p><b>Can I make Soul forget something?</b> Yes. Say "forget that", or delete it in Profile → Memory.</p>
+  <p><b>Forgot your password?</b> Tap <b>Forgot password?</b> on the sign-in screen and we email you a code.</p>
+  <p><b>Too many messages from Soul?</b> Change check-ins in Profile, but please tell me first. That's exactly the feedback I need.</p>
+  <p><b>How do I leave the test?</b> Delete your account in Profile; everything is deleted after 7 days.</p>
+  <p><b>Questions?</b> Write any time in Help &amp; contact, or email <a href="mailto:softsoul.app@gmail.com">softsoul.app@gmail.com</a>. Thank you for helping make SoftSoul feel human.</p>
+
+  <footer>
+    <p><a href="./">Join page</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+  </footer>
+</main>
+<script>
+  // Remember ticks on this phone only
+  (function () {
+    var KEY = "softsoul-guide-ticks";
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) {}
+    document.querySelectorAll(".checks input").forEach(function (box) {
+      box.checked = !!saved[box.id];
+      box.addEventListener("change", function () {
+        saved[box.id] = box.checked;
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
