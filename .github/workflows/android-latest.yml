@@ -1,0 +1,101 @@
+name: Publish latest Android build
+
+# Copies the newest finished EAS Android test build (APK) to a fixed link:
+# https://github.com/Artyom-code-pi/softsoul-legal/releases/download/android-latest/SoftSoul.apk
+# The join page (softsoul.app) links there. Runs every hour and can be run by hand.
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-latest
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Expo token is set
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          if [ -z "$EXPO_TOKEN" ]; then
+            echo "::error::Add an EXPO_TOKEN secret (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: 24.7.0
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Find newest finished Android build
+        id: find
+        run: |
+          mkdir -p eas-project && cd eas-project
+          cat > app.json <<'JSON'
+          {
+            "expo": {
+              "name": "SoftSoul",
+              "slug": "softsoul-mobile",
+              "owner": "artyom_2026",
+              "extra": { "eas": { "projectId": "bd5abbb6-a2e3-426f-8689-974ab9f8f79a" } }
+            }
+          }
+          JSON
+          eas build:list --platform android --status finished --build-profile preview \
+            --limit 1 --json --non-interactive > ../build.json
+          cd ..
+          ID=$(jq -r '.[0].id // empty' build.json)
+          URL=$(jq -r '.[0].artifacts.buildUrl // .[0].artifacts.applicationArchiveUrl // empty' build.json)
+          VER=$(jq -r '.[0].appVersion // ""' build.json)
+          NUM=$(jq -r '.[0].appBuildVersion // ""' build.json)
+          if [ -z "$ID" ] || [ -z "$URL" ]; then
+            echo "::error::No finished Android preview build found."
+            exit 1
+          fi
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "label=$VER ($NUM)" >> "$GITHUB_OUTPUT"
+          echo "Newest build: $ID $VER ($NUM)"
+
+      - name: Skip if already published
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          CURRENT=$(gh release view android-latest -R "$GITHUB_REPOSITORY" --json body -q .body 2>/dev/null | grep -o 'EAS build: [a-f0-9-]*' | cut -d' ' -f3 || true)
+          if [ "$CURRENT" = "${{ steps.find.outputs.id }}" ]; then
+            echo "Already published ${{ steps.find.outputs.id }}"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download APK
+        if: steps.check.outputs.skip != 'true'
+        run: curl -fsSL "${{ steps.find.outputs.url }}" -o SoftSoul.apk && ls -lh SoftSoul.apk
+
+      - name: Publish to fixed link
+        if: steps.check.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NOTES="SoftSoul Android test build ${{ steps.find.outputs.label }}
+          Updated $(date -u '+%d %b %Y %H:%M UTC').
+          EAS build: ${{ steps.find.outputs.id }}"
+          if gh release view android-latest -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release edit android-latest -R "$GITHUB_REPOSITORY" --notes "$NOTES" --title "Android beta ${{ steps.find.outputs.label }}"
+          else
+            gh release create android-latest -R "$GITHUB_REPOSITORY" --notes "$NOTES" --title "Android beta ${{ steps.find.outputs.label }}" --latest=false
+          fi
+          gh release upload android-latest SoftSoul.apk -R "$GITHUB_REPOSITORY" --clobber

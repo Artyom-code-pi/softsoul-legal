@@ -166,9 +166,10 @@
     <p class="brand">SoftSoul</p>
     <h1>Someone who listens.<br>And remembers.</h1>
     <p class="sub">Vent about your day. Soul will ask how it went tomorrow.</p>
-    <span class="badge">Free beta · iPhone · 18+</span>
+    <span class="badge">Free beta · iPhone & Android · 18+</span>
   </section>
 
+  <div id="iosSteps">
   <h2>Join in 3 steps</h2>
   <ol class="steps">
     <li class="step">
@@ -186,10 +187,31 @@
       <p>Open SoftSoul and just start talking.</p>
     </li>
   </ol>
+  </div>
+
+  <div id="androidSteps" hidden>
+  <h2>Android: join in 3 steps</h2>
+  <ol class="steps">
+    <li class="step">
+      <div class="step-head"><span class="num">1</span><h3>Download the app</h3></div>
+      <p>The newest SoftSoul test build, straight from us.</p>
+      <a class="btn btn-primary" href="https://github.com/Artyom-code-pi/softsoul-legal/releases/download/android-latest/SoftSoul.apk">Download for Android</a>
+    </li>
+    <li class="step">
+      <div class="step-head"><span class="num">2</span><h3>Open and install</h3></div>
+      <p>Tap the downloaded file. If your phone asks, allow installing from this browser, then tap <b>Install</b>. If Play Protect warns you, tap <b>Install anyway</b> — test apps aren't on Google Play yet.</p>
+    </li>
+    <li class="step">
+      <div class="step-head"><span class="num">3</span><h3>Say hi to Soul</h3></div>
+      <p>Open SoftSoul and just start talking. To update later, download again from this page.</p>
+    </li>
+  </ol>
+  </div>
 
   <div class="other">
-    <p><strong>On a computer?</strong> Open <b>softsoul.app</b> on your iPhone.</p>
-    <p><strong>On Android?</strong> Email <a href="mailto:softsoul.app@gmail.com?subject=SoftSoul%20Android%20beta">softsoul.app@gmail.com</a> and we'll send you the test app.</p>
+    <p><strong>On a computer?</strong> Open <b>softsoul.app</b> on your phone.</p>
+    <p id="otherAndroid"><strong>On Android?</strong> <a href="https://github.com/Artyom-code-pi/softsoul-legal/releases/download/android-latest/SoftSoul.apk">Download the Android test app</a>, open it and tap Install.</p>
+    <p id="otherIos" hidden><strong>On iPhone?</strong> <a href="#" id="showIos">See the iPhone steps</a>.</p>
   </div>
 
   <footer>
@@ -206,7 +228,23 @@
     // Reddit, Instagram, Facebook, TikTok, Snapchat, LinkedIn, X/Twitter in-app browsers
     var inApp = /Reddit|Instagram|FBAN|FBAV|FB_IAB|musical_ly|BytedanceWebview|TikTok|Snapchat|LinkedInApp|Twitter/i.test(ua);
     var isIOS = /iPhone|iPad|iPod/i.test(ua);
+    var isAndroid = /Android/i.test(ua);
     var pageUrl = location.href.split("#")[0];
+
+    if (isAndroid) {
+      document.getElementById("iosSteps").hidden = true;
+      document.getElementById("androidSteps").hidden = false;
+      document.getElementById("otherAndroid").hidden = true;
+      document.getElementById("otherIos").hidden = false;
+      document.querySelector(".badge").textContent = "Free beta · Android & iPhone · 18+";
+      document.querySelector("#inapp strong").textContent = "Open this page in Chrome first";
+      document.querySelector("#inapp p").innerHTML = "Downloads may not work inside this app's browser. Tap <b>⋮</b> or <b>•••</b> (top right) → <b>Open in browser</b>, or copy the link.";
+      document.getElementById("showIos").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.getElementById("iosSteps").hidden = false;
+        document.getElementById("otherIos").hidden = true;
+      });
+    }
 
     if (inApp) {
       document.getElementById("inapp").classList.add("show");
