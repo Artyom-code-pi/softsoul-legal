@@ -128,7 +128,7 @@ You can also complain to the Information Commissioner's Office at ico.org.uk.
 
 ## Age
 
-SoftSoul is for people aged 18 and over. We do not knowingly collect information from anyone under 18. New accounts give a date of birth, which stays on the phone, and complete the age check described above.
+SoftSoul is for people aged 18 and over. We do not knowingly collect information from anyone under 18. New accounts give a date of birth, which stays on the phone, and complete the age check described above. If your phone can, we also ask Apple (or Google Play) whether you are 18 or over: Apple shows its own screen, you choose whether to share, and we receive only "18 or over" or "under 18" and how Apple knows (for example, set by you or by a parent), never your birth date. If the answer is under 18, the account is paused.
 
 As part of the safety check on each message and call, SoftSoul looks for clear signs that the person is under 18, such as stating their age or school year. If it finds one, the account is paused, and it is deleted after 30 days unless we confirm it was a mistake. For this we keep only how clear the sign was, the type of reason and the time, never the message itself. If your account was paused by mistake, email us.
 
