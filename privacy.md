@@ -30,12 +30,18 @@ SoftSoul is an AI companion for conversation, journalling and tracking how you f
 - **Music and favourites (optional):** if you connect Apple Music or Spotify, we receive what you recently played, play most and recently added, and SoftSoul turns it into a few short taste memories (for example "loves Ukrainian rock"). If you pick favourite films, TV shows or books, we keep your picks.
 - **Notification settings:** a device token so we can send check-ins and reminders. When you finish setting up SoftSoul, we ask for notification permission and switch on check-ins and the mood reminder. You can change or switch them off in Profile at any time.
 - **Trying Soul before signing up:** you can chat with Soul as a guest before making an account. Guest chats are kept like any other chat. If you don't make an account, the guest account and its chats are deleted after 7 days.
+- **Age check:** to confirm you are 18 or over, we use Didit. You take a selfie in the app so Didit can estimate your age; if that isn't clear enough, Didit asks for a photo of an ID document. Didit receives these images, not us. We keep only the result (passed, failed or under review), Didit's reference number for the check and when it happened, never your photo, your ID or your date of birth.
+- **Subscriptions:** if you buy SoftSoul Plus, Apple handles the payment and we never see your card or bank details. We receive, through RevenueCat, which plan you have, when it started, renews or ends, and whether it was cancelled or refunded.
+- **Chat-day notes and short-lived notes:** if Memory is on, Soul writes one short private note about each day's chat, so it can keep the last week in mind. Soul may also keep a brief note about something you are going through or a story you are in the middle of, so a later check-in can ask how it went.
+- **Launch email list:** if you ask us to email you when SoftSoul launches (for example when deleting your account), we keep your email address for that one message.
 - **Usage information:** when you open the app, and how much AI processing each conversation used. This contains no conversation content.
 - **Crash reports:** technical error information, which we deliberately strip of all conversation content and any identifier.
 
 ## Sensitive information
 
 Conversations with SoftSoul may include information about your health or wellbeing. We only process this with your explicit consent, which you give when you create your account. You can withdraw consent at any time by deleting your account.
+
+The age check uses your selfie to estimate your age, which counts as biometric information. It is used only to check you are 18 or over, only with your explicit consent at the start of the check, and only by Didit.
 
 ## Memories
 
@@ -89,12 +95,14 @@ Only service providers who help us run SoftSoul:
 - **postcodes.io** (UK postcode areas): receives only the first half of a UK postcode, if you gave one, never your account or messages
 - **Amazon Web Services** (key management): looks after the master keys that protect your encryption keys; it never receives your messages or other content
 - **Apple Music or Spotify**, only if you connect them: we read your listening from them; we send them nothing about your chats
+- **Didit** (age check): receives your selfie and, if needed, a photo of your ID document; it never receives your chats or other content
+- **RevenueCat** (subscription records): receives your SoftSoul account number and your App Store purchases from Apple, never your chats or other content
 
 We share nothing else unless required by law.
 
 ## Where your information is stored
 
-Our database is in Ireland, our servers are in Germany and our encryption keys are managed in Sweden, all in the EU. Our AI and voice providers (Anthropic, OpenAI, LiveKit, Deepgram and Cartesia) and our email provider (Resend) may process information in the United States and other countries. Where information leaves the UK, we rely on appropriate safeguards recognised under UK data protection law.
+Our database is in Ireland, our servers are in Germany and our encryption keys are managed in Sweden, all in the EU. Our AI and voice providers (Anthropic, OpenAI, LiveKit, Deepgram and Cartesia), our email provider (Resend), our subscription provider (RevenueCat) and our age-check provider (Didit) may process information in the United States and other countries. Where information leaves the UK, we rely on appropriate safeguards recognised under UK data protection law.
 
 ## How we keep it safe
 
@@ -104,7 +112,7 @@ This is not end-to-end encryption. Our server unlocks your information when it i
 
 ## How long we keep it
 
-We keep your information while your account exists. Detailed safety records are anonymised after 30 days. Weekly summaries are kept until you delete them with your account. Messages you send with "Contact us" are kept while your account exists and are deleted with it; the copy in our support inbox is deleted when we no longer need it, normally within 12 months. Calendar events are deleted 4 days after they end, and all of them when you switch Calendar off. Disconnecting Apple Music or Spotify deletes what we received from it and the taste memories made from it. When you delete your account, everything is permanently removed after a 7-day grace period. Limited copies may remain temporarily in backups or service providers' logs until their normal retention periods end.
+We keep your information while your account exists. Detailed safety records are anonymised after 30 days. Weekly summaries are kept until you delete them with your account. Messages you send with "Contact us" are kept while your account exists and are deleted with it; the copy in our support inbox is deleted when we no longer need it, normally within 12 months. Calendar events are deleted 4 days after they end, and all of them when you switch Calendar off. Chat-day notes are deleted after 14 days, and also when you switch Memory off or ask Soul to forget. Notes about something you are going through are deleted after 2 days, and notes about a story in progress after 14 days at most. Subscription records are kept while your account exists. Didit deletes the images from an age check after 1 month at the latest, and keeps no face template; we keep only the result. The launch email list keeps your address, even if you delete your account, until you unsubscribe or ask us to remove it. Disconnecting Apple Music or Spotify deletes what we received from it and the taste memories made from it. When you delete your account, everything is permanently removed after a 7-day grace period. Limited copies may remain temporarily in backups or service providers' logs until their normal retention periods end.
 
 ## Deleting your account
 
@@ -120,7 +128,7 @@ You can also complain to the Information Commissioner's Office at ico.org.uk.
 
 ## Age
 
-SoftSoul is for people aged 18 and over. We do not knowingly collect information from anyone under 18.
+SoftSoul is for people aged 18 and over. We do not knowingly collect information from anyone under 18. New accounts give a date of birth, which stays on the phone, and complete the age check described above. If your phone can, we also ask Apple (or Google Play) whether you are 18 or over: Apple shows its own screen, you choose whether to share, and we receive only "18 or over" or "under 18" and how Apple knows (for example, set by you or by a parent), never your birth date. If the answer is under 18, the account is paused.
 
 As part of the safety check on each message and call, SoftSoul looks for clear signs that the person is under 18, such as stating their age or school year. If it finds one, the account is paused, and it is deleted after 30 days unless we confirm it was a mistake. For this we keep only how clear the sign was, the type of reason and the time, never the message itself. If your account was paused by mistake, email us.
 
