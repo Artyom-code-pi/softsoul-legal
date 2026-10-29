@@ -1,6 +1,6 @@
 # SoftSoul Privacy Policy
 
-Last updated: 20 October 2026
+Last updated: 29 October 2026
 
 ## Who we are
 
@@ -98,7 +98,7 @@ Our database is in Ireland, our servers are in Germany and our encryption keys a
 
 ## How we keep it safe
 
-Your conversations, journal, mood notes, memories, calendar event titles and weekly summaries are stored encrypted, each account with its own key. The keys that protect them are themselves locked by a key management service (Amazon Web Services), so someone with access to our database alone cannot read them, and our staff do not read them. Other details, such as your name, city and "Contact us" messages, are protected by our normal database security but not by this extra encryption.
+Your conversations, journal, mood notes, memories, calendar event titles, weekly summaries, your music and favourite films, TV and books, your morning news picks, and the notes you add when rating Soul's replies are stored encrypted, each account with its own key. The keys that protect them are themselves locked by a key management service (Amazon Web Services), so someone with access to our database alone cannot read them, and our staff do not read them. Other details, such as your name, city and "Contact us" messages, are protected by our normal database security but not by this extra encryption.
 
 This is not end-to-end encryption. Our server unlocks your information when it is needed to provide SoftSoul, for example to write Soul's reply, and the AI services listed above receive what they need to do their job.
 
