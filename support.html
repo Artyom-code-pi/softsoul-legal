@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SoftSoul — Support</title>
+<meta name="description" content="Help with SoftSoul: contact us, subscriptions, your data, notifications and calls.">
+<meta name="theme-color" content="#F6EEE3">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F6EEE3; --cream-deep: #EFE3D3; --card: #FFFAF3;
+    --ink: #2B2420; --ink-soft: #6B5E55;
+    --orange: #E8833A; --orange-deep: #C9622A; --orange-tint: #FBE3CF;
+    --line: #E6D8C6;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font: 400 16px/1.55 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  main { max-width: 620px; margin: 0 auto; padding: 16px 16px calc(40px + env(safe-area-inset-bottom)); }
+  a { color: var(--orange-deep); }
+  .back { display: inline-block; font-size: 15px; font-weight: 500; text-decoration: none; padding: 8px 0; }
+  header { display: flex; align-items: center; gap: 14px; margin: 12px 0 8px; }
+  .orb {
+    width: 52px; height: 52px; border-radius: 50%; flex: none;
+    background:
+      radial-gradient(circle at 34% 30%, #FFE2C2 0%, rgba(255,226,194,0) 38%),
+      radial-gradient(circle at 50% 55%, #F29A50 0%, #E8833A 45%, #C9622A 100%);
+    box-shadow: 0 8px 20px rgba(201, 98, 42, 0.25);
+  }
+  h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.15; margin: 0; }
+  .lead { font-size: 17px; color: var(--ink-soft); margin: 8px 0 20px; }
+
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+  nav.toc a {
+    text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink);
+    background: var(--cream-deep); border-radius: 999px; padding: 6px 12px;
+  }
+
+  h2 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 24px;
+    margin: 36px 0 10px; scroll-margin-top: 16px;
+  }
+  h3 { font-size: 17px; margin: 22px 0 8px; }
+  p { margin: 0 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin: 0 0 12px; }
+  .note { background: var(--orange-tint); border-radius: 14px; padding: 12px 14px; margin: 0 0 12px; font-size: 15px; }
+  ol, ul { padding-left: 22px; margin: 0 0 12px; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--orange-deep); font-weight: 600; }
+
+  .checks { list-style: none; padding: 0; }
+  .checks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+  .checks input {
+    position: absolute; left: 0; top: 2px; width: 22px; height: 22px; margin: 0;
+    accent-color: var(--orange);
+  }
+  .checks label { display: block; cursor: pointer; }
+  .checks input:checked + label { color: var(--ink-soft); }
+  .tag { font-size: 12px; font-weight: 600; color: var(--orange-deep); background: var(--orange-tint); border-radius: 999px; padding: 2px 8px; margin-left: 4px; white-space: nowrap; }
+
+  .two { display: grid; gap: 12px; }
+  @media (min-width: 560px) { .two { grid-template-columns: 1fr 1fr; } }
+  .two .card h3 { margin-top: 0; }
+
+  .quote { list-style: none; padding: 0; display: grid; gap: 6px; }
+  .quote li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; margin: 0; font-style: italic; color: var(--ink-soft); }
+
+  footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--ink-soft); }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; margin: 0 0 10px; }
+  summary { cursor: pointer; font-weight: 600; padding: 14px 16px; list-style: none; position: relative; padding-right: 40px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 500; color: var(--orange-deep); }
+  details[open] summary::after { content: "\2212"; }
+  details .a { padding: 0 16px 6px; }
+  .contact { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin: 0 0 12px; }
+  .contact .mail { font-size: 18px; font-weight: 600; word-break: break-all; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">&larr; Back to softsoul.app</a>
+
+  <header>
+    <div class="orb" aria-hidden="true"></div>
+    <h1>SoftSoul support</h1>
+  </header>
+  <p class="lead">Questions, a problem, or something that feels off? Here is how to reach us, and quick answers to the most common questions.</p>
+
+  <h2 id="contact">Contact us</h2>
+  <div class="contact">
+    <p><b>Email</b><br><a class="mail" href="mailto:softsoul.app@gmail.com">softsoul.app@gmail.com</a></p>
+    <p><b>In the app</b><br>Open <b>Help &amp; contact</b> and tap <b>Contact us</b>. Soul's Help assistant can answer quick questions first.</p>
+    <p style="margin-bottom:0">If you write about your account, please write from the email address you signed up with. Please don't send passwords or payment card details.</p>
+  </div>
+  <div class="note"><b>Not an emergency service.</b> Soul is an AI, not a person, a therapist or an emergency service. If you are in danger or thinking about hurting yourself, contact your local emergency number right now. In the UK and Ireland, Samaritans are free on 116 123. <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a> lists free lines in other countries.</div>
+
+  <h2 id="faq">Common questions</h2>
+
+  <details>
+    <summary>What is SoftSoul?</summary>
+    <div class="a"><p>SoftSoul is an AI companion called Soul that you can text or talk to. Soul can remember what you choose to share, check in on you during the day, and keep a gentle record of your mood and journal if you want one. SoftSoul is for adults, 18 and over.</p></div>
+  </details>
+
+  <details>
+    <summary>What is free and what is SoftSoul Plus?</summary>
+    <div class="a">
+      <p>SoftSoul is free to start, with a daily limit on messages. SoftSoul Plus adds voice calls with Soul and a higher daily message limit. The price and what is included are shown on the Plus screen in the app before you buy.</p>
+      <p>Plus is billed by Apple through your Apple ID and renews automatically until you cancel. If a free first week is on offer, the app says so before you start it.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How do I cancel my subscription?</summary>
+    <div class="a">
+      <p>On your iPhone open <b>Settings</b>, tap your name, then <b>Subscriptions</b>, choose <b>SoftSoul</b> and tap <b>Cancel Subscription</b>. You keep Plus until the end of the period you paid for.</p>
+      <p>Deleting the app or your SoftSoul account does not cancel a subscription, so cancel it in Settings too. For refunds, Apple decides: go to <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>I paid for Plus but the app still shows Free</summary>
+    <div class="a"><p>Open the Plus screen in the app and tap <b>Restore purchases</b>, and make sure you are signed in to the same SoftSoul account you bought with. If Plus still doesn't appear, email us and tell us the email address of your account.</p></div>
+  </details>
+
+  <details>
+    <summary>How do I see, download or delete my data?</summary>
+    <div class="a">
+      <p><b>See and remove memories:</b> Profile &rarr; Manage memories. You can also say &ldquo;forget that&rdquo; in the chat.</p>
+      <p><b>Download your data:</b> in Profile, tap <b>Download my data</b>.</p>
+      <p><b>Delete your account:</b> scroll to the bottom of Profile and tap <b>Delete my account</b>. There is a 7-day waiting period in which you can change your mind; after that everything is permanently removed. Cancel any subscription in iPhone Settings as well.</p>
+      <p>More detail is in the <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Soul sent me too many (or too few) messages</summary>
+    <div class="a"><p>In <b>Profile &rarr; Reminders</b> you can choose how often Soul checks in, or turn check-ins off. Nothing is sent between 22:00 and 08:00. If notifications don't arrive at all, check iPhone <b>Settings &rarr; Notifications &rarr; SoftSoul</b> and that Focus or Do Not Disturb isn't hiding them.</p></div>
+  </details>
+
+  <details>
+    <summary>Soul is slow, or a voice call isn't working</summary>
+    <div class="a">
+      <p>Check your internet connection, then close the app completely and open it again. Right after an update, replies can be slower for a few minutes.</p>
+      <p>For calls, also check that SoftSoul is allowed to use the microphone in iPhone Settings. Calls need SoftSoul Plus. If it keeps happening, email us with what you were doing and roughly when.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Soul said something wrong or upsetting</summary>
+    <div class="a"><p>Touch and hold the message in the chat to react to it or tell us it wasn't right. For anything serious, email us with what happened. We read these and use them to improve Soul.</p></div>
+  </details>
+
+  <details>
+    <summary>My account was paused for being under 18</summary>
+    <div class="a"><p>SoftSoul is only for adults. If a conversation suggests someone is under 18, the account is paused. If that was a mistake and you are an adult, email us from the address on your account and we will help.</p></div>
+  </details>
+
+  <details>
+    <summary>I forgot my password</summary>
+    <div class="a"><p>On the sign-in screen tap <b>Forgot password?</b> and we email you a code. If the email doesn't arrive, check your spam folder.</p></div>
+  </details>
+
+  <footer>
+    <p><a href="./">Home</a> &middot; Support &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="mailto:softsoul.app@gmail.com">Contact</a></p>
+  </footer>
+</main>
+</body>
+</html>
