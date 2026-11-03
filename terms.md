@@ -1,6 +1,6 @@
 # SoftSoul Terms of Use
 
-Last updated: 27 October 2026
+Last updated: 3 November 2026
 
 ## About these terms
 
@@ -28,7 +28,7 @@ AI replies can be wrong, incomplete or unexpected. Use your own judgement about 
 
 ## Free and Plus
 
-SoftSoul is free to use with daily limits. The free plan includes 10 messages to Soul a day, check-ins, mood tracking and the journal. It does not include voice calls.
+SoftSoul is free to use with daily limits. The free plan includes 5 messages to Soul a day, check-ins, mood tracking and the journal. It does not include voice calls.
 
 **SoftSoul Plus** costs £7.99 a month or £49.99 a year and includes 50 messages a day and 60 minutes of voice calls a month. Prices shown in the app are the ones that apply to you and include VAT where it applies. Unused messages or call minutes don't carry over.
 
