@@ -1,12 +1,12 @@
-# SoftSoul website draft: preview (5 Nov 2026, v2)
+# SoftSoul website draft: preview (5 Nov 2026, v3)
 
 Screenshots of `draft/index.html`, so the draft can be viewed on github.com when softsoul.app is blocked.
 Fonts in these pictures are fallbacks (my environment can't load Google Fonts). The real page uses Bricolage Grotesque + Newsreader.
 
-## Soul through the day (tap the orb on the real page)
-<img src="orb-1-morning.png" width="800" alt="Morning">
-<img src="orb-2-afternoon.png" width="800" alt="Afternoon">
-<img src="orb-3-evening.png" width="800" alt="Evening">
+## Soul's colours (tap the orb, or pick a dot under it)
+Sunrise, Ember, Rose, Violet, Ocean, Meadow. The sky behind her changes with her colour.
+
+<img src="orb-colours.png" width="900" alt="The six orb colours">
 
 ## Whole page, laptop
 <img src="laptop-full.png" width="900" alt="Whole page on a laptop">
