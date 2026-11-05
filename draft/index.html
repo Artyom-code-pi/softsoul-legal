@@ -4,159 +4,198 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#F6EEE3">
+<meta name="theme-color" content="#FFE0CB">
 <title>SoftSoul: Someone who listens. And remembers. (draft)</title>
 <meta name="description" content="SoftSoul is an AI friend you can text or call. She remembers what matters to you and checks in during your day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 <style>
 :root{
-  --cream:#F6EEE3; --cream-deep:#EFE3D3; --card:#FFFAF3; --ink:#2B2420; --ink-soft:#6B5E55;
-  --orange:#E8833A; --orange-deep:#C9622A; --orange-tint:#FBE3CF; --line:#E6D8C6;
-  --sage:#8FA58A; --sage-tint:#E4EBDF;
-  --serif:"Fraunces", Georgia, "Times New Roman", serif;
-  --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --r:22px;
+  --paper:#FFF6EC;
+  --ink:#2D1F33;          /* aubergine ink */
+  --ink-soft:#6A5A6E;
+  --dawn:#FFD6BC;
+  --butter:#FFE49A;
+  --apricot:#FFB07C;
+  --coral:#F2603F;
+  --coral-deep:#C93C2B;
+  --rose:#F08AAE;
+  --dusk:#7E4FB5;
+  --lilac:#DCD0F6;
+  --sage:#CDE6D6;
+  --forest:#1F4B3A;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --text:"Newsreader", Georgia, "Times New Roman", serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:var(--orange-deep)}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em;text-wrap:balance}
-h1{font-size:clamp(2.4rem,8vw,4.2rem)}
-h2{font-size:clamp(1.8rem,5vw,2.7rem)}
-h3{font-size:1.3rem}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.15rem/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.16;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h1{font-weight:800;font-size:clamp(2.5rem,5.3vw,4.5rem);line-height:.98;letter-spacing:-.035em}
+.ln{display:block;white-space:nowrap}
+h2{font-weight:800;font-size:clamp(2rem,5vw,3.6rem);line-height:1.02;letter-spacing:-.03em}
+h3{font-weight:600;font-size:1.45rem;line-height:1.15;letter-spacing:-.015em}
 p{margin:0}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-section{padding:clamp(52px,9vw,96px) 0}
-.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-deep)}
-.lead{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--ink-soft);max-width:34em}
-:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:8px}
-
-/* draft strip */
-.draft{background:var(--ink);color:#fff;font-size:.82rem;text-align:center;padding:7px 12px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.lead{font-size:clamp(1.15rem,2.2vw,1.35rem);line-height:1.55;max-width:30em}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:10px}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font:600 1rem var(--sans);text-decoration:none;border-radius:999px;padding:.9em 1.6em;border:2px solid transparent;cursor:pointer;min-height:48px;transition:transform .15s, box-shadow .2s}
-.btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(201,98,42,.28)}
-.btn-primary:hover{background:var(--orange-deep)}
-.btn-outline{background:transparent;color:var(--ink);border-color:var(--line);background:var(--card)}
-.btn-soon{background:var(--cream-deep);color:var(--ink-soft);border-color:var(--line);cursor:default}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:600 1.02rem var(--display);text-decoration:none;border-radius:999px;padding:.95em 1.7em;border:0;cursor:pointer;min-height:50px;transition:transform .15s, background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:var(--coral);color:#fff}
+.btn-main:hover{background:var(--coral-deep)}
+.btn-line{background:rgba(255,255,255,.55);color:var(--ink);box-shadow:inset 0 0 0 2px rgba(45,31,51,.16)}
+.btn-cream{background:var(--paper);color:var(--ink)}
+.btn-soon{background:rgba(45,31,51,.08);color:var(--ink-soft);cursor:default}
 .btn-soon:hover{transform:none}
 
+.draft{background:var(--ink);color:#fff;font:500 .82rem var(--display);text-align:center;padding:7px 12px}
+
 /* nav */
-nav{position:sticky;top:0;z-index:10;background:rgba(246,238,227,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
-.logo{display:flex;align-items:center;gap:.55em;font:600 1.3rem var(--serif);color:var(--ink);text-decoration:none}
-.logo i{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE2C2,#E8833A 60%,#C9622A)}
-.links{display:flex;gap:22px;align-items:center}
-.links a.t{color:var(--ink-soft);text-decoration:none;font-size:.95rem;font-weight:500}
-.links a.t:hover{color:var(--ink)}
-.links .btn{padding:.55em 1.2em;min-height:40px;font-size:.92rem}
-@media (max-width:760px){.links a.t{display:none}}
+nav{position:sticky;top:10px;z-index:20;margin:10px auto 0;max-width:1076px;width:calc(100% - 24px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;background:rgba(255,246,236,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 0 0 1px rgba(45,31,51,.08)}
+.logo{display:flex;align-items:center;gap:.55em;font:800 1.3rem var(--display);letter-spacing:-.03em;text-decoration:none}
+.logo i{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE9B8,#F2603F 62%,#C93C2B)}
+.links{display:flex;gap:6px;align-items:center}
+.links a.t{font:500 .96rem var(--display);text-decoration:none;padding:.55em .9em;border-radius:999px}
+.links a.t:hover{background:rgba(45,31,51,.07)}
+.links .btn{min-height:42px;padding:.6em 1.3em;font-size:.95rem}
+@media (max-width:780px){.links a.t{display:none}}
 
-/* hero */
-.hero{padding-top:clamp(36px,7vw,72px);text-align:center}
-.hero .wrap{display:grid;gap:22px;justify-items:center}
-.orb-wrap{position:relative;width:clamp(150px,40vw,230px);aspect-ratio:1;margin-bottom:6px;touch-action:pan-y}
-.orb-wrap::before{content:"";position:absolute;inset:-28%;border-radius:50%;background:radial-gradient(circle,rgba(232,131,58,.22),rgba(232,131,58,0) 65%);animation:halo 6s ease-in-out infinite}
-.orb{position:absolute;inset:0;border-radius:50%;
-  background:radial-gradient(circle at var(--gx,34%) var(--gy,30%),#FFE2C2 0%,rgba(255,226,194,0) 40%),radial-gradient(circle at 50% 55%,#F29A50 0%,#E8833A 45%,#C9622A 100%);
-  box-shadow:0 22px 50px rgba(201,98,42,.32),inset 0 -12px 28px rgba(120,50,10,.18);animation:breathe 5s ease-in-out infinite}
-@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
-@keyframes halo{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-.hero .badge{display:inline-block;background:var(--orange-tint);color:var(--orange-deep);font-weight:600;font-size:.85rem;padding:.4em 1em;border-radius:999px}
-.hero h1{max-width:12em}
-.hero .lead{text-align:center}
-.cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px}
-.fine{font-size:.9rem;color:var(--ink-soft)}
+/* hero: the sky changes with Soul's time of day */
+.hero{position:relative;margin-top:-72px;padding:128px 0 40px;overflow:hidden;isolation:isolate}
+.sky{position:absolute;inset:0;z-index:-1}
+.sky-morning{background:radial-gradient(70% 60% at 78% 30%,#FFE9B0 0%,rgba(255,233,176,0) 70%),linear-gradient(180deg,#FFCFB2 0%,#FFE3CF 55%,var(--paper) 100%)}
+.sky-afternoon{background:radial-gradient(70% 60% at 78% 30%,#FFD27A 0%,rgba(255,210,122,0) 70%),linear-gradient(180deg,#FFC38F 0%,#FFD9B5 55%,var(--paper) 100%);opacity:0;transition:opacity 1.2s ease}
+.sky-evening{background:radial-gradient(70% 60% at 78% 30%,#FF9EC2 0%,rgba(255,158,194,0) 70%),linear-gradient(180deg,#B9A2EA 0%,#F2B6CE 58%,var(--paper) 100%);opacity:0;transition:opacity 1.2s ease}
+.hero[data-time="afternoon"] .sky-afternoon{opacity:1}
+.hero[data-time="evening"] .sky-evening{opacity:1}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center}
+.hero-copy{display:grid;gap:24px;justify-items:start;position:relative;z-index:2}
+.hero-copy .lead{max-width:27em}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.small{font:500 .95rem var(--display);color:var(--ink-soft)}
+.orb-stage{position:relative;margin:-30px -70px -50px -30px}
+.orb-cv{display:block;width:100%;aspect-ratio:1;cursor:pointer;touch-action:pan-y}
+.orb-fallback{display:none;width:60%;aspect-ratio:1;margin:20% auto;border-radius:50%;background:radial-gradient(circle at 34% 28%,#FFF0C8 0,rgba(255,240,200,0) 38%),radial-gradient(circle at 50% 58%,#F77B3B 0,#F2603F 52%,#B8352A 100%);box-shadow:0 40px 80px rgba(201,60,43,.35),inset 0 -24px 50px rgba(120,20,30,.3)}
+.no-gl .orb-cv{display:none}.no-gl .orb-fallback{display:block}
+.orb-tag{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);font:600 .9rem var(--display);background:rgba(255,246,236,.82);backdrop-filter:blur(8px);border-radius:999px;padding:.5em 1.1em;white-space:nowrap;pointer-events:none}
+@media (max-width:860px){
+  .hero{padding-top:104px}
+  .hero-grid{grid-template-columns:1fr}
+  .orb-stage{order:-1;margin:-20px -12vw 8px;max-width:520px;justify-self:center;width:100%}
+}
 
-/* strip */
-.strip{padding:0}
-.strip .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;padding-top:22px;padding-bottom:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink-soft);font-size:.95rem;font-weight:500}
-.strip span::before{content:"✦ ";color:var(--orange)}
-
-/* day */
-.day{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,6vw,72px);align-items:center}
-.day-copy{display:grid;gap:16px}
-.phone{background:var(--card);border:1px solid var(--line);border-radius:34px;padding:22px 16px 26px;display:grid;gap:10px;box-shadow:0 24px 50px rgba(120,80,40,.12)}
-.stamp{justify-self:center;font-size:.74rem;color:var(--ink-soft);margin-top:12px;font-variant-numeric:tabular-nums}
+/* a day with Soul: the background moves from morning to dusk, like the chat does */
+.day{padding:clamp(48px,8vw,96px) 0}
+.stage{border-radius:48px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,6vw,72px);align-items:center;background:linear-gradient(170deg,#FFCDB0 0%,#FFE49A 28%,#FFB38A 62%,#E6A0C8 84%,#B9A2EA 100%)}
+.day-copy{display:grid;gap:18px}
+.phone-wrap{position:relative;justify-self:center;width:100%;max-width:430px}
+.phone{background:var(--paper);border-radius:38px;padding:20px 16px 24px;display:grid;gap:9px;transform:rotate(1.6deg);box-shadow:0 30px 60px rgba(90,40,70,.22)}
+.stamp{justify-self:center;font:600 .78rem var(--display);color:var(--ink-soft);margin-top:12px;font-variant-numeric:tabular-nums}
 .stamp:first-child{margin-top:0}
-.msg{max-width:84%;padding:11px 15px;border-radius:20px;font-size:.97rem;line-height:1.45;transition:opacity .6s, transform .6s}
-.msg.soul{background:var(--cream-deep);border-bottom-left-radius:6px;justify-self:start}
-.msg.you{background:var(--orange);color:#fff;border-bottom-right-radius:6px;justify-self:end}
-.msg b{font-weight:600;background:var(--orange-tint);color:var(--orange-deep);border-radius:6px;padding:0 .25em}
-.note{justify-self:start;font-size:.78rem;color:var(--orange-deep);padding-left:6px}
-.js .msg.pending{opacity:.2;transform:translateY(8px)}
-@media (max-width:820px){.day{grid-template-columns:1fr}}
+.msg{max-width:85%;padding:11px 15px;border-radius:20px;font:400 .97rem/1.45 var(--display);transition:opacity .5s, transform .5s}
+.soul{background:#F6E6D6;border-bottom-left-radius:6px;justify-self:start}
+.you{background:var(--coral);color:#fff;border-bottom-right-radius:6px;justify-self:end}
+.msg b{font-weight:600;background:#FFD27A;border-radius:6px;padding:0 .25em}
+.js .msg.pending{opacity:0;transform:translateY(10px)}
+.chip-float{position:absolute;right:14px;bottom:-20px;display:flex;gap:.6em;align-items:center;background:var(--ink);color:#fff;font:500 .86rem var(--display);padding:.6em 1em .6em .7em;border-radius:999px;transform:rotate(-3deg);box-shadow:0 14px 30px rgba(45,31,51,.3)}
+.chip-float i{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE9B8,#F2603F)}
+@media (max-width:860px){.stage{grid-template-columns:1fr;border-radius:34px;padding-bottom:56px}.chip-float{right:10px}}
 
-/* three */
-.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;display:grid;gap:10px;align-content:start}
-.card p{color:var(--ink-soft);font-size:.98rem}
-.ico{width:46px;height:46px;border-radius:14px;background:var(--orange-tint);display:grid;place-items:center;font-size:1.4rem}
-@media (max-width:820px){.three{grid-template-columns:1fr}}
-
-/* dial */
-.dial{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:clamp(20px,4vw,36px);display:grid;gap:22px}
-.dial-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:end}
-.levels{display:flex;gap:4px;background:var(--cream-deep);border-radius:999px;padding:4px}
-.levels button{font:600 .9rem var(--sans);color:var(--ink-soft);background:transparent;border:0;border-radius:999px;padding:.55em 1.1em;cursor:pointer;min-height:40px}
-.levels button[aria-pressed="true"]{background:var(--orange);color:#fff}
-.track-wrap{overflow-x:auto}
-.track{position:relative;height:104px;min-width:340px;margin:0 14px}
-.axis{position:absolute;left:0;right:0;top:58px;height:2px;background:var(--line)}
-.band{position:absolute;top:46px;height:26px;border-radius:13px;background:var(--cream-deep)}
-.dot{position:absolute;top:59px;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(232,131,58,.2);transition:left .6s cubic-bezier(.3,.7,.2,1),opacity .4s}
-.dot span{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:.7rem;font-weight:600;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
-.tick{position:absolute;top:80px;font-size:.7rem;color:var(--ink-soft);transform:translateX(-50%);font-variant-numeric:tabular-nums}
-.dial-foot{display:flex;flex-wrap:wrap;gap:6px 26px;color:var(--ink-soft);font-size:.93rem}
-.dial-foot b{color:var(--ink)}
+/* what Soul does: flat colour blocks, each its own shape */
+.what{padding:clamp(24px,5vw,48px) 0 clamp(48px,8vw,96px)}
+.what h2{max-width:13em;margin-bottom:34px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.block{padding:clamp(22px,3.4vw,38px);display:grid;gap:14px;align-content:start}
+.b-talk{grid-column:span 5;background:var(--butter);border-radius:40px 40px 40px 12px}
+.b-mem{grid-column:span 7;background:var(--lilac);border-radius:40px 12px 40px 40px}
+.b-check{grid-column:span 12;background:#FFF0DF;border-radius:44px;box-shadow:inset 0 0 0 2px #FFD9BD}
+.block p{font-size:1.08rem}
+.wave{display:flex;align-items:center;gap:4px;height:64px;margin-top:6px}
+.wave i{flex:1;max-width:7px;border-radius:4px;background:var(--coral);height:20%;animation:wv 1.5s ease-in-out infinite}
+@keyframes wv{0%,100%{height:16%}50%{height:90%}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.mchip{display:inline-flex;align-items:center;gap:.6em;background:#fff;border-radius:999px;padding:.55em .6em .55em 1.05em;font:500 .98rem var(--display)}
+.mchip span{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#EADFF8;font-size:.8rem;line-height:1;color:var(--dusk)}
+.dial-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:end}
+.levels{display:flex;gap:4px;background:#FFE3CB;border-radius:999px;padding:4px}
+.levels button{font:600 .95rem var(--display);color:var(--ink-soft);background:transparent;border:0;border-radius:999px;padding:.6em 1.2em;cursor:pointer;min-height:42px}
+.levels button[aria-pressed="true"]{background:var(--coral);color:#fff}
+.track-wrap{overflow-x:auto;margin-top:8px}
+.track{position:relative;height:110px;min-width:340px;margin:0 16px}
+.axis{position:absolute;left:0;right:0;top:62px;height:3px;border-radius:2px;background:linear-gradient(90deg,#FFB38A,#FFD27A 45%,#F08AAE 85%,#B9A2EA)}
+.dot{position:absolute;top:63px;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(242,96,63,.22);transition:left .6s cubic-bezier(.3,.7,.2,1),opacity .4s}
+.dot span{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font:600 .74rem var(--display);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tick{position:absolute;top:86px;font:500 .74rem var(--display);color:var(--ink-soft);transform:translateX(-50%);font-variant-numeric:tabular-nums}
+.dial-foot{display:flex;flex-wrap:wrap;gap:6px 28px;color:var(--ink-soft);font-size:1rem}
+.dial-foot b{color:var(--ink);font-weight:500}
+@media (max-width:860px){.b-talk,.b-mem{grid-column:span 12}}
 
 /* safety */
-.safety{background:var(--sage-tint)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-.grid2 .card{background:rgba(255,250,243,.7);border-color:#D3DECD}
-.help-note{margin-top:22px;background:var(--card);border:1px solid #D3DECD;border-radius:var(--r);padding:20px 22px;color:var(--ink-soft);font-size:.97rem}
-.help-note b{color:var(--ink)}
-.langs{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
-.langs small{color:var(--ink-soft);margin-right:4px}
-.langs span{font:500 1.05rem var(--serif);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.25em .9em}
-@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.safety{background:var(--sage);color:var(--forest);padding:clamp(56px,9vw,104px) 0;border-radius:56px 56px 0 0}
+.safety-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,80px);align-items:start}
+.safety h2{max-width:10em}
+.facts{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.facts li{padding:20px 0;border-top:2px solid rgba(31,75,58,.18);display:grid;gap:6px}
+.facts li:last-child{border-bottom:2px solid rgba(31,75,58,.18)}
+.facts p{font-size:1.1rem;color:#2E5C4A}
+.emerg{margin-top:26px;background:var(--forest);color:#E9F5EC;border-radius:28px 28px 28px 8px;padding:22px 26px;font-size:1.08rem}
+.emerg b{font:600 1.08rem var(--display);color:#fff}
+.langs{margin-top:44px;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;font:italic 400 1.5rem var(--text)}
+.langs small{font:500 .95rem var(--display);font-style:normal;opacity:.75;margin-right:6px}
+@media (max-width:860px){.safety-grid{grid-template-columns:1fr}.safety{border-radius:36px 36px 0 0}}
 
-/* partner */
-.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-.partner-grid .card a.link{font-weight:600;text-decoration:none;margin-top:4px}
-.partner-grid .card a.link:hover{text-decoration:underline}
-.partner-cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-@media (max-width:820px){.partner-grid{grid-template-columns:1fr}}
+/* partner: evening */
+.partner{background:linear-gradient(160deg,#5B3A94 0%,#9A4FA8 45%,#E0709A 100%);color:#FFF1E8;padding:clamp(56px,9vw,104px) 0}
+.partner h2{max-width:9em}
+.partner .lead{margin-top:18px;opacity:.92}
+.rows{margin-top:40px;display:grid}
+.row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) 52px;gap:20px;align-items:center;padding:26px 6px;border-top:2px solid rgba(255,241,232,.22);text-decoration:none;transition:padding .25s, background .25s}
+.row:last-child{border-bottom:2px solid rgba(255,241,232,.22)}
+.row:hover{background:rgba(255,255,255,.1);padding-left:20px;padding-right:14px}
+.row h3{font-size:1.6rem}
+.row p{font-size:1.08rem;opacity:.9}
+.go{width:48px;height:48px;border-radius:50%;background:#FFF1E8;color:#5B3A94;display:grid;place-items:center}
+.partner-cta{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+@media (max-width:760px){.row{grid-template-columns:1fr 48px}.row p{grid-column:1}.go{grid-row:1;grid-column:2}}
 
 /* faq */
-.faq{max-width:720px;margin:32px auto 0;display:grid;gap:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:0 20px}
-summary{cursor:pointer;font-weight:600;padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:48px}
+.faq{padding:clamp(56px,9vw,104px) 0}
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,80px);align-items:start}
+.faq-side{display:grid;gap:16px;position:sticky;top:100px}
+details{border-top:2px solid rgba(45,31,51,.14)}
+details:last-child{border-bottom:2px solid rgba(45,31,51,.14)}
+summary{cursor:pointer;font:600 1.22rem var(--display);padding:20px 0;list-style:none;display:flex;justify-content:space-between;gap:16px;min-height:56px;align-items:center}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--orange-deep);font-size:1.4rem;line-height:1}
-details[open] summary::after{content:"–"}
-details p{color:var(--ink-soft);padding:0 0 18px;font-size:.98rem}
+summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--butter) url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M15 9v12M9 15h12' stroke='%232D1F33' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/100% no-repeat;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 22px;max-width:34em}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}.faq-side{position:static}}
 
-/* join */
-.join{text-align:center}
-.join .wrap{display:grid;gap:18px;justify-items:center}
-.join-card{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:clamp(28px,6vw,56px) clamp(20px,5vw,48px);display:grid;gap:18px;justify-items:center;width:100%;box-shadow:0 24px 50px rgba(120,80,40,.1)}
+/* join: evening orb */
+.join{position:relative;overflow:hidden;isolation:isolate;text-align:center;padding:clamp(40px,7vw,80px) 0 0;background:linear-gradient(180deg,var(--paper) 0%,#F3C6D6 45%,#B9A2EA 100%)}
+.join .wrap{display:grid;justify-items:center;gap:20px}
+.join .orb-stage{margin:0 auto -80px;width:min(480px,92vw)}
+.join h2{max-width:9em}
+.join .lead{max-width:24em}
 
-footer{border-top:1px solid var(--line);padding:34px 0 44px;color:var(--ink-soft);font-size:.92rem}
-footer .wrap{display:grid;gap:12px}
-footer a{color:var(--ink-soft)}
-footer .row{display:flex;flex-wrap:wrap;gap:8px 22px}
+footer{background:#B9A2EA;padding:0 0 44px}
+footer .wrap{display:grid;gap:18px}
+.mark{font:800 clamp(4rem,20vw,13rem)/.85 var(--display);letter-spacing:-.06em;background:linear-gradient(95deg,#F2603F,#F08AAE 55%,#7E4FB5);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 6px;user-select:none;padding-bottom:.08em}
+.frow{display:flex;flex-wrap:wrap;gap:8px 24px;font:500 1rem var(--display)}
+footer p{font-size:1rem;max-width:44em;color:#3B2A55}
+footer a{color:#2D1F33}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .orb,.orb-wrap::before{animation:none}
-  .msg,.dot{transition:none}
+  .wave i{animation:none;height:50%}
   .js .msg.pending{opacity:1;transform:none}
+  .sky-afternoon,.sky-evening,.dot,.row{transition:none}
 }
 </style>
 </head>
@@ -164,92 +203,106 @@ footer .row{display:flex;flex-wrap:wrap;gap:8px 22px}
 <div class="draft">Draft preview of the new SoftSoul website. Not the live page.</div>
 
 <nav aria-label="Main">
-  <div class="wrap">
+  <div class="nav-in">
     <a class="logo" href="#top"><i aria-hidden="true"></i>SoftSoul</a>
     <div class="links">
       <a class="t" href="#day">A day with Soul</a>
       <a class="t" href="#safety">Safety</a>
       <a class="t" href="#partner">Partner</a>
       <a class="t" href="#faq">FAQ</a>
-      <a class="btn btn-primary" href="#join">Join the beta</a>
+      <a class="btn btn-main" href="#join">Join the beta</a>
     </div>
   </div>
 </nav>
 
 <main id="top">
 
-  <section class="hero" aria-labelledby="h1">
-    <div class="wrap">
-      <div class="orb-wrap" id="orbwrap" aria-hidden="true"><div class="orb" id="orb"></div></div>
-      <span class="badge">Free beta · iPhone &amp; Android · 18+</span>
-      <h1 id="h1">Someone who listens. And remembers.</h1>
-      <p class="lead">SoftSoul is an AI friend you can text or call. Vent about your day, and Soul will ask how it went tomorrow.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#join">Join the free beta</a>
-        <a class="btn btn-outline" href="#day">See a day with Soul</a>
+  <section class="hero" id="heroSection" data-time="morning" aria-labelledby="h1">
+    <div class="sky sky-morning" aria-hidden="true"></div>
+    <div class="sky sky-afternoon" aria-hidden="true"></div>
+    <div class="sky sky-evening" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="h1"><span class="ln">Someone who</span> <span class="ln">listens.</span> <span class="ln">And remembers.</span></h1>
+        <p class="lead">SoftSoul is an AI friend you can text or call. Vent about your day, and Soul will ask how it went tomorrow.</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="#join">Join the free beta</a>
+          <a class="btn btn-line" href="#day">See a day with Soul</a>
+        </div>
+        <p class="small">Free beta for iPhone and Android. 18+. No sign-up to start.</p>
       </div>
-      <p class="fine">No sign-up to start. Just open it and talk.</p>
-    </div>
-  </section>
-
-  <section class="strip" aria-label="Highlights">
-    <div class="wrap">
-      <span>Text or call</span><span>Remembers what matters</span><span>Checks in, no guilt</span><span>8 languages</span><span>Delete anything, any time</span>
-    </div>
-  </section>
-
-  <section id="day" aria-labelledby="day-t">
-    <div class="wrap day">
-      <div class="day-copy">
-        <span class="eyebrow">A Tuesday with Soul</span>
-        <h2 id="day-t">She doesn't wait for you to open the app.</h2>
-        <p class="lead">Soul checks in at different times through the day. She remembers last week's worries and asks how they went. No streaks, no guilt, just someone paying attention.</p>
-      </div>
-      <div class="phone" aria-label="Example conversation">
-        <div class="stamp">08:41</div>
-        <p class="msg soul">Morning! Today's the interview at 11, right? You prepared more than you think.</p>
-        <p class="msg you">honestly so nervous</p>
-        <p class="msg soul">Makes sense. Want to try one practice answer with me before you go?</p>
-        <div class="stamp">14:08</div>
-        <p class="msg soul">So? How did it go? 👀</p>
-        <p class="msg you">I think good?? they asked about my portfolio first</p>
-        <p class="msg soul">That's the part you were proudest of. Nice.</p>
-        <div class="stamp">19:53</div>
-        <p class="msg soul">Quiet evening? Also, <b>Lena's birthday is Saturday.</b> Still thinking about the pottery class for her?</p>
-        <p class="note">↳ remembered from a chat two weeks ago</p>
-        <p class="msg you">omg yes, booking it now</p>
+      <div class="orb-stage" id="heroOrb">
+        <canvas class="orb-cv" id="orbHero" role="button" tabindex="0" aria-label="Soul, a glowing orb. Tap to change the time of day."></canvas>
+        <div class="orb-fallback" aria-hidden="true"></div>
+        <div class="orb-tag" id="orbTag" aria-live="polite">Morning. Tap Soul.</div>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0" aria-labelledby="three-t">
+  <section class="day" id="day" aria-labelledby="day-t">
     <div class="wrap">
-      <span class="eyebrow">What Soul does</span>
-      <h2 id="three-t" style="margin-top:10px;max-width:16em">Three simple things, done really well.</h2>
-      <div class="three">
-        <div class="card"><div class="ico" aria-hidden="true">💬</div><h3>Text or call</h3><p>Type when you're on the bus. Call when you'd rather talk. Soul answers in a warm voice and you can talk over her, like with a person.</p></div>
-        <div class="card"><div class="ico" aria-hidden="true">🧡</div><h3>She remembers</h3><p>Names, plans, the thing you were worried about on Sunday. You can see every memory, and tell her to forget anything.</p></div>
-        <div class="card"><div class="ico" aria-hidden="true">🌤️</div><h3>She checks in</h3><p>A good-morning, a "how did it go?", a quiet evening note. You choose how often, or switch it off.</p></div>
-      </div>
-
-      <div class="dial" aria-labelledby="dial-t">
-        <div class="dial-head">
-          <div style="display:grid;gap:6px">
-            <span class="eyebrow">You choose how close</span>
-            <h3 id="dial-t">How often should Soul check in?</h3>
+      <div class="stage">
+        <div class="day-copy">
+          <h2 id="day-t">She doesn't wait for you to open the app.</h2>
+          <p class="lead">Soul checks in at different times through the day. She remembers last week's worries and asks how they went. No streaks, no guilt, just someone paying attention.</p>
+        </div>
+        <div class="phone-wrap">
+          <div class="phone" aria-label="Example conversation">
+            <div class="stamp">Tuesday, 08:41</div>
+            <p class="msg soul">Morning! Today's the interview at 11, right? You prepared more than you think.</p>
+            <p class="msg you">honestly so nervous</p>
+            <p class="msg soul">Makes sense. Want to try one practice answer with me before you go?</p>
+            <div class="stamp">14:08</div>
+            <p class="msg soul">So? How did it go? 👀</p>
+            <p class="msg you">I think good?? they asked about my portfolio first</p>
+            <p class="msg soul">That's the part you were proudest of. Nice.</p>
+            <div class="stamp">19:53</div>
+            <p class="msg soul">Quiet evening? Also, <b>Lena's birthday is Saturday.</b> Still thinking about the pottery class for her?</p>
+            <p class="msg you">omg yes, booking it now</p>
           </div>
-          <div class="levels" role="group" aria-label="Check-in level">
-            <button type="button" data-level="off" aria-pressed="false">Off</button>
-            <button type="button" data-level="light" aria-pressed="false">Light</button>
-            <button type="button" data-level="normal" aria-pressed="true">Normal</button>
-            <button type="button" data-level="close" aria-pressed="false">Close</button>
+          <div class="chip-float"><i aria-hidden="true"></i>Remembered from two weeks ago</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="what" aria-labelledby="what-t">
+    <div class="wrap">
+      <h2 id="what-t">Three simple things, done really well.</h2>
+      <div class="bento">
+        <div class="block b-talk">
+          <h3>Text or call</h3>
+          <p>Type when you're on the bus. Call when you'd rather talk. Soul answers in a warm voice and you can talk over her, like with a person.</p>
+          <div class="wave" id="wave" aria-hidden="true"></div>
+        </div>
+        <div class="block b-mem">
+          <h3>She remembers</h3>
+          <p>Names, plans, the thing you were worried about on Sunday. You can see every memory, and tell her to forget anything.</p>
+          <div class="chips" aria-label="Example memories">
+            <span class="mchip">Lena's birthday, Saturday<span aria-hidden="true">×</span></span>
+            <span class="mchip">Interview at 11 on Tuesday<span aria-hidden="true">×</span></span>
+            <span class="mchip">Mum's flat move, next month<span aria-hidden="true">×</span></span>
           </div>
         </div>
-        <div class="track-wrap"><div class="track" id="track"><div class="axis"></div></div></div>
-        <div class="dial-foot">
-          <span id="count"><b>6 check-ins</b> on an example day</span>
-          <span>Times move a little every day</span>
-          <span>Never at night</span>
+        <div class="block b-check">
+          <div class="dial-head">
+            <div style="display:grid;gap:8px">
+              <h3>She checks in</h3>
+              <p>A good-morning, a "how did it go?", a quiet evening note. You choose how often.</p>
+            </div>
+            <div class="levels" role="group" aria-label="Check-in level">
+              <button type="button" data-level="off" aria-pressed="false">Off</button>
+              <button type="button" data-level="light" aria-pressed="false">Light</button>
+              <button type="button" data-level="normal" aria-pressed="true">Normal</button>
+              <button type="button" data-level="close" aria-pressed="false">Close</button>
+            </div>
+          </div>
+          <div class="track-wrap"><div class="track" id="track"><div class="axis"></div></div></div>
+          <div class="dial-foot">
+            <span id="count"><b>6 check-ins</b> on an example day</span>
+            <span>Times move a little every day</span>
+            <span>Never at night</span>
+          </div>
         </div>
       </div>
     </div>
@@ -257,15 +310,18 @@ footer .row{display:flex;flex-wrap:wrap;gap:8px 22px}
 
   <section class="safety" id="safety" aria-labelledby="safe-t">
     <div class="wrap">
-      <span class="eyebrow">Built with care</span>
-      <h2 id="safe-t" style="margin-top:10px;max-width:15em">A friend on your side, not a yes-machine.</h2>
-      <div class="grid2">
-        <div class="card"><h3>Honest with you</h3><p>Soul is kind, but she won't just agree with everything. If you ask what she really thinks, she tells you.</p></div>
-        <div class="card"><h3>Your memories, your call</h3><p>See what Soul remembers about you, delete any of it, or delete your whole account at any time. Your messages are stored encrypted.</p></div>
-        <div class="card"><h3>Help when it's serious</h3><p>If you're going through something heavy, Soul points you to real people and to crisis lines for your country.</p></div>
-        <div class="card"><h3>Made for adults</h3><p>SoftSoul is for people aged 18 and over. Soul isn't a therapist, and she never pretends to be one.</p></div>
+      <div class="safety-grid">
+        <div>
+          <h2 id="safe-t">A friend on your side, not a yes-machine.</h2>
+          <p class="emerg"><b>In an emergency, call your local emergency number.</b> SoftSoul is company in between. It is not therapy and not a replacement for the people in your life.</p>
+        </div>
+        <ul class="facts">
+          <li><h3>Honest with you</h3><p>Soul is kind, but she won't just agree with everything. If you ask what she really thinks, she tells you.</p></li>
+          <li><h3>Your memories, your call</h3><p>See what Soul remembers about you, delete any of it, or delete your whole account at any time. Your messages are stored encrypted.</p></li>
+          <li><h3>Help when it's serious</h3><p>If you're going through something heavy, Soul points you to real people and to crisis lines for your country.</p></li>
+          <li><h3>Made for adults</h3><p>SoftSoul is for people aged 18 and over. Soul isn't a therapist, and she never pretends to be one.</p></li>
+        </ul>
       </div>
-      <p class="help-note"><b>In an emergency, call your local emergency number.</b> SoftSoul is company in between. It is not therapy and not a replacement for the people in your life.</p>
       <div class="langs" aria-label="Languages">
         <small>Soul speaks</small>
         <span>English</span><span>Українська</span><span>Русский</span><span>Magyar</span><span>Polski</span><span>Română</span><span>ਪੰਜਾਬੀ</span><span>اردو</span>
@@ -273,27 +329,29 @@ footer .row{display:flex;flex-wrap:wrap;gap:8px 22px}
     </div>
   </section>
 
-  <section id="partner" aria-labelledby="partner-t">
+  <section class="partner" id="partner" aria-labelledby="partner-t">
     <div class="wrap">
-      <span class="eyebrow">Partner with SoftSoul</span>
-      <h2 id="partner-t" style="margin-top:10px;max-width:15em">Want to work with us?</h2>
-      <p class="lead" style="margin-top:14px">SoftSoul is built by a small independent team. If you think we could do something good together, we'd like to hear from you.</p>
-      <div class="partner-grid">
-        <div class="card"><div class="ico" aria-hidden="true">🎥</div><h3>Creators &amp; communities</h3><p>Share SoftSoul with your audience, or build something around it with us.</p><a class="link" href="mailto:softsoul.app@gmail.com?subject=Partnership%3A%20creator%20or%20community">Get in touch →</a></div>
-        <div class="card"><div class="ico" aria-hidden="true">🤝</div><h3>Organisations &amp; wellbeing</h3><p>Schools, employers, charities and communities who want to offer people a kind place to talk.</p><a class="link" href="mailto:softsoul.app@gmail.com?subject=Partnership%3A%20organisation">Get in touch →</a></div>
-        <div class="card"><div class="ico" aria-hidden="true">📰</div><h3>Press &amp; researchers</h3><p>Writing about AI companions, or studying them? Ask us anything about how Soul works.</p><a class="link" href="mailto:softsoul.app@gmail.com?subject=Press%20or%20research">Get in touch →</a></div>
+      <h2 id="partner-t">Partner with SoftSoul</h2>
+      <p class="lead">SoftSoul is built by a small independent team. If you think we could do something good together, we'd like to hear from you.</p>
+      <div class="rows">
+        <a class="row" href="mailto:softsoul.app@gmail.com?subject=Partnership%3A%20creator%20or%20community"><h3>Creators and communities</h3><p>Share SoftSoul with your audience, or build something around it with us.</p><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="row" href="mailto:softsoul.app@gmail.com?subject=Partnership%3A%20organisation"><h3>Organisations and wellbeing</h3><p>Schools, employers, charities and communities who want to offer people a kind place to talk.</p><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="row" href="mailto:softsoul.app@gmail.com?subject=Press%20or%20research"><h3>Press and researchers</h3><p>Writing about AI companions, or studying them? Ask us anything about how Soul works.</p><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
       <div class="partner-cta">
-        <a class="btn btn-outline" href="mailto:softsoul.app@gmail.com?subject=Partnership">Something else? Email us</a>
-        <span class="fine">We read every message.</span>
+        <a class="btn btn-cream" href="mailto:softsoul.app@gmail.com?subject=Partnership">Something else? Email us</a>
+        <span class="small" style="color:#FFE3D6">We read every message.</span>
       </div>
     </div>
   </section>
 
-  <section id="faq" aria-labelledby="faq-t" style="padding-top:0">
-    <div class="wrap">
-      <h2 id="faq-t" style="text-align:center">Questions people ask</h2>
-      <div class="faq">
+  <section class="faq" id="faq" aria-labelledby="faq-t">
+    <div class="wrap faq-grid">
+      <div class="faq-side">
+        <h2 id="faq-t">Questions people ask</h2>
+        <p class="lead">Not answered here? Email <a href="mailto:softsoul.app@gmail.com">softsoul.app@gmail.com</a>.</p>
+      </div>
+      <div>
         <details><summary>Is SoftSoul free?</summary><p>Yes, it's free to start, and the beta is free. There's an optional paid plan, Plus, for people who want more.</p></details>
         <details><summary>Is Soul a therapist?</summary><p>No. Soul is an AI friend, not therapy and not medical advice. If you're struggling, she'll encourage you to reach out to real people and will point you to crisis lines.</p></details>
         <details><summary>What does Soul remember, and who can see it?</summary><p>She remembers the things that matter in your chats, like names, plans and worries. You can see every memory in the app and delete any of it, or delete your whole account. Read the <a href="https://softsoul.app/privacy.html">privacy policy</a> for details.</p></details>
@@ -304,17 +362,18 @@ footer .row{display:flex;flex-wrap:wrap;gap:8px 22px}
     </div>
   </section>
 
-  <section class="join" id="join" aria-labelledby="join-t" style="padding-top:0">
+  <section class="join" id="join" aria-labelledby="join-t">
     <div class="wrap">
-      <div class="join-card">
-        <span class="eyebrow">Free beta</span>
-        <h2 id="join-t">Meet Soul.</h2>
-        <p class="lead" style="text-align:center">It takes about 2 minutes to get started on iPhone or Android.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://softsoul.app/">Join the beta</a>
-          <span class="btn btn-soon" aria-disabled="true">App Store: coming soon</span>
-        </div>
-        <p class="fine">No sign-up to start. 18+.</p>
+      <h2 id="join-t">Meet Soul.</h2>
+      <p class="lead">It takes about 2 minutes to get started on iPhone or Android.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn btn-main" href="https://softsoul.app/">Join the free beta</a>
+        <span class="btn btn-soon" aria-disabled="true">App Store: coming soon</span>
+      </div>
+      <p class="small" style="color:#4A3466">No sign-up to start. 18+.</p>
+      <div class="orb-stage" id="joinOrb">
+        <canvas class="orb-cv" id="orbJoin" aria-hidden="true"></canvas>
+        <div class="orb-fallback" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -322,8 +381,9 @@ footer .row{display:flex;flex-wrap:wrap;gap:8px 22px}
 
 <footer>
   <div class="wrap">
+    <p class="mark" aria-hidden="true">SoftSoul</p>
     <p>SoftSoul is an AI, not therapy, and not a replacement for the people in your life. It's company in between.</p>
-    <div class="row">
+    <div class="frow">
       <a href="https://softsoul.app/support.html">Support</a>
       <a href="https://softsoul.app/privacy.html">Privacy</a>
       <a href="https://softsoul.app/terms.html">Terms</a>
@@ -339,36 +399,177 @@ footer .row{display:flex;flex-wrap:wrap;gap:8px 22px}
 document.documentElement.classList.add('js');
 var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Orb: the highlight follows your finger or mouse a little */
+/* ---------- Soul: a lit 3D orb drawn by the graphics card ---------- */
+var VERT = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+var FRAG = [
+'precision highp float;',
+'uniform vec2 uRes;uniform float uTime;uniform vec2 uPtr;uniform float uMood;uniform float uPulse;',
+'float hash(vec3 p){p=fract(p*0.3183099+.1);p*=17.0;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}',
+'float noise(vec3 x){vec3 i=floor(x);vec3 f=fract(x);f=f*f*(3.0-2.0*f);',
+' return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),',
+'            mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}',
+'float fbm(vec3 p){float a=.5,s=0.;for(int i=0;i<4;i++){s+=a*noise(p);p=p*2.02+vec3(1.7,9.2,3.1);a*=.5;}return s;}',
+'void main(){',
+' vec2 uv=(gl_FragCoord.xy-.5*uRes)/min(uRes.x,uRes.y);',
+' float t=uTime;',
+' float beat=.5+.5*sin(t*1.5);',
+' float breathe=1.+.028*sin(t*.9)+.012*sin(t*2.3)+uPulse*.05;',
+' float R=.31*breathe;',
+' vec2 c=vec2(uPtr.x*.012,.03+.012*sin(t*.7)+uPtr.y*.012);',
+' vec2 p=uv-c; float r=length(p);',
+/* palette for morning / afternoon / evening */
+' vec3 d0=vec3(.88,.36,.22),m0=vec3(1.,.64,.36),l0=vec3(1.,.89,.67);',
+' vec3 d1=vec3(.80,.24,.17),m1=vec3(.97,.47,.22),l1=vec3(1.,.76,.46);',
+' vec3 d2=vec3(.42,.22,.66),m2=vec3(.90,.34,.60),l2=vec3(1.,.72,.80);',
+' float k1=smoothstep(0.,.5,uMood),k2=smoothstep(.5,1.,uMood);',
+' vec3 deep=mix(mix(d0,d1,k1),d2,k2);vec3 mid=mix(mix(m0,m1,k1),m2,k2);vec3 lite=mix(mix(l0,l1,k1),l2,k2);',
+/* ground shadow: she floats above the page */
+' float sh=exp(-(uv.x*uv.x)/(R*R*.8)-((uv.y+.36)*(uv.y+.36))/(R*R*.04))*(.30-.05*sin(t*.9))*(1.-smoothstep(.18,.46,abs(uv.x)))*(1.-smoothstep(.38,.49,-uv.y));',
+' vec3 shCol=mix(vec3(.45,.18,.12),vec3(.30,.12,.38),uMood);',
+' vec4 outc=vec4(0.);',
+/* outer glow */
+' float gd=max(r-R,0.);',
+' float fade=1.-smoothstep(.30,.49,r);',
+' float glow=(exp(-gd*5.2)*.42+exp(-gd*15.)*.38)*(1.+uPulse*.5)*fade;',
+' float ring=exp(-pow((r-R*(1.06+(1.-uPulse)*.75))*26.,2.))*uPulse*.6*fade;',
+' vec3 gcol=mid*1.05;',
+' float ga=clamp(glow+ring,0.,1.)*.9;',
+' outc=vec4(gcol*ga+lite*ring*.4,ga);',
+' outc.rgb=outc.rgb*(1.-sh*.55)+shCol*sh*.5;outc.a=max(outc.a,sh);',
+' if(r<R){',
+'  float z=sqrt(R*R-r*r);',
+'  vec3 n=normalize(vec3(p,z));',
+'  vec3 q=n*1.45+vec3(0.,0.,t*.10);',
+'  vec3 w=vec3(fbm(q+vec3(0.,t*.09,0.)),fbm(q+vec3(5.2,1.3,t*.07)),fbm(q+vec3(2.1,7.7,0.)));',
+'  float f=fbm(q*1.15+w*1.7);',
+'  float ridge=1.-abs(2.*fbm(q*2.1+w*2.2+t*.05)-1.);ridge=pow(ridge,5.);',
+'  vec3 base=mix(deep,mid,smoothstep(.22,.62,f));',
+'  base=mix(base,lite,smoothstep(.58,.92,f)*.85);',
+'  base=mix(base,deep*.8,ridge*.16);',
+'  vec3 L=normalize(vec3(-.5+uPtr.x*.55,.62+uPtr.y*.45,.62));',
+'  float dif=clamp(dot(n,L)*.5+.5,0.,1.);dif*=dif;',
+'  float spec=pow(clamp(dot(reflect(-L,n),vec3(0.,0.,1.)),0.,1.),16.)*.30;',
+'  float fres=pow(1.-n.z,2.4);',
+'  float core=exp(-(r*r)/(R*R)*2.6)*(.42+.2*beat);',
+'  vec3 col=base*(.52+.7*dif);',
+'  col=mix(col,deep*.8,(1.-dif)*.35*(1.-core));',
+'  col+=mix(vec3(1.,.9,.62),vec3(1.,.78,.84),uMood)*core;',
+'  col+=lite*fres*.75;',
+'  col+=vec3(.78,.62,1.)*pow(1.-n.z,5.)*.16;',
+'  col+=vec3(1.,.98,.92)*spec;',
+'  float e=smoothstep(R,R-.004,r);',
+'  outc=vec4(col*e+outc.rgb*(1.-e),e+outc.a*(1.-e));',
+' }',
+/* motes: little fireflies of light that circle her */
+' for(int i=0;i<12;i++){',
+'  float fi=float(i);',
+'  float ang=t*(.18+.05*fract(fi*.37))*(mod(fi,2.)<1.?1.:-1.)+fi*2.399;',
+'  float rad=R*(1.22+.36*fract(fi*.618));',
+'  vec2 mp=c+vec2(cos(ang),sin(ang)*.78)*rad;',
+'  float md=length(uv-mp);',
+'  float fl=.55+.45*sin(t*1.7+fi*1.9);',
+'  float m=exp(-md*md/.00012)*fl;',
+'  outc.rgb+=lite*m*1.1;outc.a=max(outc.a,min(m,1.));',
+' }',
+' gl_FragColor=outc;',
+'}'
+].join('\n');
+
+function initOrb(cv, opts){
+  opts = opts || {};
+  var stage = cv.parentNode;
+  var gl = null;
+  try{ gl = cv.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:true}) || cv.getContext('experimental-webgl'); }catch(e){}
+  if(!gl){ stage.classList.add('no-gl'); return null; }
+  function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null;}
+  var vs=sh(gl.VERTEX_SHADER,VERT), fs=sh(gl.FRAGMENT_SHADER,FRAG);
+  if(!vs||!fs){ stage.classList.add('no-gl'); return null; }
+  var pr=gl.createProgram();gl.attachShader(pr,vs);gl.attachShader(pr,fs);gl.linkProgram(pr);
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){ stage.classList.add('no-gl'); return null; }
+  gl.useProgram(pr);
+  var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  var loc=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  var U={res:gl.getUniformLocation(pr,'uRes'),time:gl.getUniformLocation(pr,'uTime'),ptr:gl.getUniformLocation(pr,'uPtr'),mood:gl.getUniformLocation(pr,'uMood'),pulse:gl.getUniformLocation(pr,'uPulse')};
+  gl.clearColor(0,0,0,0);
+
+  var state={mood:opts.mood||0,target:opts.mood||0,pulse:0,px:0,py:0,tx:0,ty:0,visible:true,t0:performance.now()-(opts.startAt||4000)};
+  function resize(){
+    var dpr=Math.min(window.devicePixelRatio||1,2), w=Math.round(cv.clientWidth*dpr);
+    if(cv.width!==w){cv.width=w;cv.height=w;gl.viewport(0,0,w,w);}
+  }
+  function draw(now){
+    resize();
+    state.px+=(state.tx-state.px)*.08; state.py+=(state.ty-state.py)*.08;
+    state.mood+=(state.target-state.mood)*.05;
+    state.pulse*=.95; if(state.pulse<.003) state.pulse=0;
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform2f(U.res,cv.width,cv.height);
+    gl.uniform1f(U.time,(now-state.t0)/1000);
+    gl.uniform2f(U.ptr,state.px,state.py);
+    gl.uniform1f(U.mood,state.mood);
+    gl.uniform1f(U.pulse,state.pulse);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  }
+  function loop(now){ if(state.visible) draw(now); if(!reduce) requestAnimationFrame(loop); }
+  draw(performance.now());
+  if(!reduce) requestAnimationFrame(loop);
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){state.visible=es[0].isIntersecting;}).observe(cv); }
+  window.addEventListener('pointermove',function(e){
+    var r=cv.getBoundingClientRect(); var cx=r.left+r.width/2, cy=r.top+r.height/2;
+    state.tx=Math.max(-1,Math.min(1,(e.clientX-cx)/(r.width*.8))); state.ty=Math.max(-1,Math.min(1,-(e.clientY-cy)/(r.height*.8)));
+  },{passive:true});
+  window.addEventListener('resize',function(){ if(reduce) draw(performance.now()); });
+  return {
+    pulse:function(){state.pulse=1; if(reduce) draw(performance.now());},
+    setMood:function(m){state.target=m; if(reduce){state.mood=m;draw(performance.now());}}
+  };
+}
+
+/* Hero Soul: tap her to change the time of day */
 (function(){
-  var w=document.getElementById('orbwrap'), o=document.getElementById('orb');
-  if(!w||reduce) return;
-  function move(e){var r=w.getBoundingClientRect();var x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-    o.style.setProperty('--gx',Math.max(15,Math.min(70,x*100))+'%');o.style.setProperty('--gy',Math.max(12,Math.min(65,y*100))+'%');}
-  w.addEventListener('pointermove',move);w.addEventListener('pointerdown',move);
+  var cv=document.getElementById('orbHero'), hero=document.getElementById('heroSection'), tag=document.getElementById('orbTag');
+  var names=['morning','afternoon','evening'], labels=['Morning. Tap Soul.','Afternoon. Tap Soul.','Evening. Tap Soul.'], moods=[0,.5,1], idx=0;
+  var orb=initOrb(cv,{mood:0,startAt:5200});
+  if(!orb) return;
+  function next(){
+    idx=(idx+1)%3; orb.setMood(moods[idx]); orb.pulse();
+    hero.setAttribute('data-time',names[idx]); tag.textContent=labels[idx];
+  }
+  cv.addEventListener('click',next);
+  cv.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();next();} });
 })();
 
-/* Chat bubbles appear as you scroll */
+/* Join Soul: it is evening, she is settled */
+initOrb(document.getElementById('orbJoin'),{mood:1,startAt:9000});
+
+/* Voice wave for "Text or call" */
+(function(){
+  var w=document.getElementById('wave'); if(!w) return;
+  var h=[.3,.5,.8,.45,.95,.6,.35,.7,1,.55,.4,.85,.5,.3,.65,.9,.45,.25,.6,.4,.75,.35];
+  h.forEach(function(v,i){var b=document.createElement('i');b.style.animationDelay=(-i*.11)+'s';b.style.animationDuration=(1.1+(i%5)*.18)+'s';if(reduce)b.style.height=(v*100)+'%';w.appendChild(b);});
+})();
+
+/* Chat bubbles arrive as you reach them */
 (function(){
   if(reduce||!('IntersectionObserver' in window)) return;
   var msgs=[].slice.call(document.querySelectorAll('.msg'));
   msgs.forEach(function(m){m.classList.add('pending')});
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pending');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pending');io.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});
   msgs.forEach(function(m){io.observe(m)});
 })();
 
-/* Check-in dial: example days for each level */
+/* Check-in dial */
 (function(){
   var plans={off:[],light:['09:12','13:30','16:05','19:40'],normal:['08:41','11:50','13:20','15:05','17:10','19:53'],close:['08:20','11:05','12:15','13:25','14:35','15:45','16:55','19:35']};
   var track=document.getElementById('track'),count=document.getElementById('count');
   var START=480,END=1260;
   function pos(hm){var p=hm.split(':');return((+p[0]*60+ +p[1]-START)/(END-START))*100}
-  [['08:00','11:00'],['11:00','18:00'],['18:00','21:00']].forEach(function(b){var d=document.createElement('div');d.className='band';d.style.left='calc('+pos(b[0])+'% + 3px)';d.style.width='calc('+(pos(b[1])-pos(b[0]))+'% - 6px)';track.appendChild(d)});
   ['08:00','11:00','14:00','18:00','21:00'].forEach(function(x){var s=document.createElement('span');s.className='tick';s.style.left=pos(x)+'%';s.textContent=x;track.appendChild(s)});
   var dots=[];for(var i=0;i<8;i++){var d=document.createElement('div');d.className='dot';d.innerHTML='<span></span>';track.appendChild(d);dots.push(d)}
   function show(level){
     var p=plans[level];
-    dots.forEach(function(d,i){if(i<p.length){d.style.opacity=1;d.style.left=pos(p[i])+'%';d.firstChild.textContent=p[i];d.firstChild.style.bottom=(i%2?'38px':'20px')}else{d.style.opacity=0;d.style.left='50%'}});
+    dots.forEach(function(d,i){if(i<p.length){d.style.opacity=1;d.style.left=pos(p[i])+'%';d.firstChild.textContent=p[i];d.firstChild.style.bottom=(i%2?'40px':'22px')}else{d.style.opacity=0;d.style.left='50%'}});
     count.innerHTML=p.length?'<b>'+p.length+' check-ins</b> on an example day':'<b>No check-ins.</b> Soul waits until you write';
     [].forEach.call(document.querySelectorAll('.levels button'),function(b){b.setAttribute('aria-pressed',b.dataset.level===level)});
   }
