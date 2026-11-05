@@ -68,14 +68,7 @@ nav{position:sticky;top:10px;z-index:20;margin:10px auto 0;max-width:1076px;widt
 
 /* hero: the sky changes with Soul's time of day */
 .hero{position:relative;margin-top:-72px;padding:128px 0 40px;overflow:hidden;isolation:isolate}
-.sky{position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity 1.2s ease}
-.sky[data-i="0"]{background:radial-gradient(70% 60% at 78% 30%,#FFD27A 0%,rgba(255,210,122,0) 70%),linear-gradient(180deg,#FFC38F 0%,#FFD9B5 55%,var(--paper) 100%)}
-.sky[data-i="1"]{background:radial-gradient(70% 60% at 78% 30%,#FFE9B0 0%,rgba(255,233,176,0) 70%),linear-gradient(180deg,#FFCFB2 0%,#FFE3CF 55%,var(--paper) 100%)}
-.sky[data-i="2"]{background:radial-gradient(70% 60% at 78% 30%,#FFB3CB 0%,rgba(255,179,203,0) 70%),linear-gradient(180deg,#FFC3D3 0%,#FFE0E6 55%,var(--paper) 100%)}
-.sky[data-i="3"]{background:radial-gradient(70% 60% at 78% 30%,#C9B3FF 0%,rgba(201,179,255,0) 70%),linear-gradient(180deg,#B9A2EA 0%,#E4D6F7 55%,var(--paper) 100%)}
-.sky[data-i="4"]{background:radial-gradient(70% 60% at 78% 30%,#A6E3EC 0%,rgba(166,227,236,0) 70%),linear-gradient(180deg,#B7E3EE 0%,#DDF1F0 55%,var(--paper) 100%)}
-.sky[data-i="5"]{background:radial-gradient(70% 60% at 78% 30%,#C8EDB3 0%,rgba(200,237,179,0) 70%),linear-gradient(180deg,#C6E8C4 0%,#E4F2D8 55%,var(--paper) 100%)}
-.hero[data-color="0"] .sky[data-i="0"],.hero[data-color="1"] .sky[data-i="1"],.hero[data-color="2"] .sky[data-i="2"],.hero[data-color="3"] .sky[data-i="3"],.hero[data-color="4"] .sky[data-i="4"],.hero[data-color="5"] .sky[data-i="5"]{opacity:1}
+.sky{position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 60% at 78% 30%,#FFD27A 0%,rgba(255,210,122,0) 70%),linear-gradient(180deg,#FFC38F 0%,#FFD9B5 55%,var(--paper) 100%)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center}
 .hero-copy{display:grid;gap:24px;justify-items:start;position:relative;z-index:2}
 .hero-copy .lead{max-width:27em}
@@ -85,12 +78,6 @@ nav{position:sticky;top:10px;z-index:20;margin:10px auto 0;max-width:1076px;widt
 .orb-cv{display:block;width:100%;aspect-ratio:1;cursor:pointer;touch-action:pan-y}
 .orb-fallback{display:none;width:60%;aspect-ratio:1;margin:20% auto;border-radius:50%;background:radial-gradient(circle at 34% 28%,#FFF0C8 0,rgba(255,240,200,0) 38%),radial-gradient(circle at 50% 58%,#F77B3B 0,#F2603F 52%,#B8352A 100%);box-shadow:0 40px 80px rgba(201,60,43,.35),inset 0 -24px 50px rgba(120,20,30,.3)}
 .no-gl .orb-cv{display:none}.no-gl .orb-fallback{display:block}
-.orb-tag{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);display:flex;align-items:center;gap:.7em;font:600 .9rem var(--display);background:rgba(255,246,236,.85);backdrop-filter:blur(8px);border-radius:999px;padding:.25em .5em .25em 1.1em;white-space:nowrap;pointer-events:none}
-.swatches{display:flex}
-.sw{pointer-events:auto;width:32px;height:32px;border:0;background:none;padding:0;cursor:pointer;display:grid;place-items:center}
-.sw i{display:block;width:20px;height:20px;border-radius:50%;box-shadow:0 0 0 2px #fff;transition:transform .2s}
-.sw[aria-pressed="true"] i{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink);transform:scale(1.12)}
-.no-gl .orb-tag{display:none}
 @media (max-width:860px){
   .hero{padding-top:104px}
   .hero-grid{grid-template-columns:1fr}
@@ -202,7 +189,7 @@ footer a{color:#2D1F33}
   html{scroll-behavior:auto}
   .wave i{animation:none;height:50%}
   .js .msg.pending{opacity:1;transform:none}
-  .sky,.dot,.row{transition:none}
+  .dot,.row{transition:none}
 }
 </style>
 </head>
@@ -224,13 +211,8 @@ footer a{color:#2D1F33}
 
 <main id="top">
 
-  <section class="hero" id="heroSection" data-color="0" aria-labelledby="h1">
-    <div class="sky" data-i="0" aria-hidden="true"></div>
-    <div class="sky" data-i="1" aria-hidden="true"></div>
-    <div class="sky" data-i="2" aria-hidden="true"></div>
-    <div class="sky" data-i="3" aria-hidden="true"></div>
-    <div class="sky" data-i="4" aria-hidden="true"></div>
-    <div class="sky" data-i="5" aria-hidden="true"></div>
+  <section class="hero" id="heroSection" aria-labelledby="h1">
+    <div class="sky" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1 id="h1"><span class="ln">Someone who</span> <span class="ln">listens.</span> <span class="ln">And remembers.</span></h1>
@@ -242,9 +224,8 @@ footer a{color:#2D1F33}
         <p class="small">Free to start. iPhone now, Android soon. 18+. No sign-up needed.</p>
       </div>
       <div class="orb-stage" id="heroOrb">
-        <canvas class="orb-cv" id="orbHero" role="button" tabindex="0" aria-label="Soul, a glowing orb. Tap to change her colour."></canvas>
+        <canvas class="orb-cv" id="orbHero" role="button" tabindex="0" aria-label="Soul, a glowing orb. Tap to make her glow."></canvas>
         <div class="orb-fallback" aria-hidden="true"></div>
-        <div class="orb-tag"><span id="orbName" aria-live="polite">Ember</span><span class="swatches" id="swatches" role="group" aria-label="Soul's colour"></span></div>
       </div>
     </div>
   </section>
@@ -482,16 +463,10 @@ var FRAG = [
 ].join('\n');
 
 var PALETTES=[
- {n:'Ember',d:[.80,.24,.17],m:[.97,.47,.22],l:[1,.76,.46]},
- {n:'Sunrise',d:[.88,.36,.22],m:[1,.64,.36],l:[1,.89,.67]},
- {n:'Rose',d:[.72,.18,.42],m:[.95,.42,.62],l:[1,.78,.85]},
- {n:'Violet',d:[.30,.16,.62],m:[.62,.40,.92],l:[.88,.80,1]},
- {n:'Ocean',d:[.08,.30,.55],m:[.18,.62,.78],l:[.70,.92,.95]},
- {n:'Meadow',d:[.14,.42,.30],m:[.42,.74,.50],l:[.86,.96,.70]},
- {n:'Dusk',d:[.42,.22,.66],m:[.90,.34,.60],l:[1,.72,.80]}
+ {d:[.80,.24,.17],m:[.97,.47,.22],l:[1,.76,.46]},   /* Ember: Soul's colour */
+ {d:[.42,.22,.66],m:[.90,.34,.60],l:[1,.72,.80]}    /* Dusk: the orb at the bottom of the page */
 ];
 function flat(p){return p.d.concat(p.m,p.l);}
-function rgb(c){return 'rgb('+Math.round(c[0]*255)+','+Math.round(c[1]*255)+','+Math.round(c[2]*255)+')';}
 
 function initOrb(cv, opts){
   opts = opts || {};
@@ -548,29 +523,17 @@ function initOrb(cv, opts){
   };
 }
 
-/* Hero Soul: tap her, or pick a colour */
+/* Hero Soul: tap her and she glows */
 (function(){
-  var cv=document.getElementById('orbHero'), hero=document.getElementById('heroSection'), nameEl=document.getElementById('orbName'), sw=document.getElementById('swatches');
+  var cv=document.getElementById('orbHero');
   var orb=initOrb(cv,{palette:0,startAt:5200});
   if(!orb) return;
-  var idx=0, btns=[];
-  function set(i){
-    idx=i; orb.setPalette(i); orb.pulse();
-    hero.setAttribute('data-color',i); nameEl.textContent=PALETTES[i].n;
-    btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===i)});
-  }
-  for(var i=0;i<6;i++){(function(i){
-    var p=PALETTES[i], b=document.createElement('button'), d=document.createElement('i');
-    b.type='button'; b.className='sw'; b.setAttribute('aria-label',p.n); b.setAttribute('aria-pressed',i===0);
-    d.style.background='radial-gradient(circle at 35% 30%,'+rgb(p.l)+','+rgb(p.m)+' 55%,'+rgb(p.d)+')';
-    b.appendChild(d); b.addEventListener('click',function(){set(i)}); sw.appendChild(b); btns.push(b);
-  })(i);}
-  cv.addEventListener('click',function(){set((idx+1)%6)});
-  cv.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();set((idx+1)%6);} });
+  cv.addEventListener('click',function(){orb.pulse();});
+  cv.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();orb.pulse();} });
 })();
 
 /* Join Soul: settled into dusk colours */
-initOrb(document.getElementById('orbJoin'),{palette:6,startAt:9000});
+initOrb(document.getElementById('orbJoin'),{palette:1,startAt:9000});
 
 /* Voice wave for "Text or call" */
 (function(){
