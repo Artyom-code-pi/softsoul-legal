@@ -68,12 +68,14 @@ nav{position:sticky;top:10px;z-index:20;margin:10px auto 0;max-width:1076px;widt
 
 /* hero: the sky changes with Soul's time of day */
 .hero{position:relative;margin-top:-72px;padding:128px 0 40px;overflow:hidden;isolation:isolate}
-.sky{position:absolute;inset:0;z-index:-1}
-.sky-morning{background:radial-gradient(70% 60% at 78% 30%,#FFE9B0 0%,rgba(255,233,176,0) 70%),linear-gradient(180deg,#FFCFB2 0%,#FFE3CF 55%,var(--paper) 100%)}
-.sky-afternoon{background:radial-gradient(70% 60% at 78% 30%,#FFD27A 0%,rgba(255,210,122,0) 70%),linear-gradient(180deg,#FFC38F 0%,#FFD9B5 55%,var(--paper) 100%);opacity:0;transition:opacity 1.2s ease}
-.sky-evening{background:radial-gradient(70% 60% at 78% 30%,#FF9EC2 0%,rgba(255,158,194,0) 70%),linear-gradient(180deg,#B9A2EA 0%,#F2B6CE 58%,var(--paper) 100%);opacity:0;transition:opacity 1.2s ease}
-.hero[data-time="afternoon"] .sky-afternoon{opacity:1}
-.hero[data-time="evening"] .sky-evening{opacity:1}
+.sky{position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity 1.2s ease}
+.sky[data-i="0"]{background:radial-gradient(70% 60% at 78% 30%,#FFE9B0 0%,rgba(255,233,176,0) 70%),linear-gradient(180deg,#FFCFB2 0%,#FFE3CF 55%,var(--paper) 100%)}
+.sky[data-i="1"]{background:radial-gradient(70% 60% at 78% 30%,#FFD27A 0%,rgba(255,210,122,0) 70%),linear-gradient(180deg,#FFC38F 0%,#FFD9B5 55%,var(--paper) 100%)}
+.sky[data-i="2"]{background:radial-gradient(70% 60% at 78% 30%,#FFB3CB 0%,rgba(255,179,203,0) 70%),linear-gradient(180deg,#FFC3D3 0%,#FFE0E6 55%,var(--paper) 100%)}
+.sky[data-i="3"]{background:radial-gradient(70% 60% at 78% 30%,#C9B3FF 0%,rgba(201,179,255,0) 70%),linear-gradient(180deg,#B9A2EA 0%,#E4D6F7 55%,var(--paper) 100%)}
+.sky[data-i="4"]{background:radial-gradient(70% 60% at 78% 30%,#A6E3EC 0%,rgba(166,227,236,0) 70%),linear-gradient(180deg,#B7E3EE 0%,#DDF1F0 55%,var(--paper) 100%)}
+.sky[data-i="5"]{background:radial-gradient(70% 60% at 78% 30%,#C8EDB3 0%,rgba(200,237,179,0) 70%),linear-gradient(180deg,#C6E8C4 0%,#E4F2D8 55%,var(--paper) 100%)}
+.hero[data-color="0"] .sky[data-i="0"],.hero[data-color="1"] .sky[data-i="1"],.hero[data-color="2"] .sky[data-i="2"],.hero[data-color="3"] .sky[data-i="3"],.hero[data-color="4"] .sky[data-i="4"],.hero[data-color="5"] .sky[data-i="5"]{opacity:1}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center}
 .hero-copy{display:grid;gap:24px;justify-items:start;position:relative;z-index:2}
 .hero-copy .lead{max-width:27em}
@@ -83,7 +85,12 @@ nav{position:sticky;top:10px;z-index:20;margin:10px auto 0;max-width:1076px;widt
 .orb-cv{display:block;width:100%;aspect-ratio:1;cursor:pointer;touch-action:pan-y}
 .orb-fallback{display:none;width:60%;aspect-ratio:1;margin:20% auto;border-radius:50%;background:radial-gradient(circle at 34% 28%,#FFF0C8 0,rgba(255,240,200,0) 38%),radial-gradient(circle at 50% 58%,#F77B3B 0,#F2603F 52%,#B8352A 100%);box-shadow:0 40px 80px rgba(201,60,43,.35),inset 0 -24px 50px rgba(120,20,30,.3)}
 .no-gl .orb-cv{display:none}.no-gl .orb-fallback{display:block}
-.orb-tag{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);font:600 .9rem var(--display);background:rgba(255,246,236,.82);backdrop-filter:blur(8px);border-radius:999px;padding:.5em 1.1em;white-space:nowrap;pointer-events:none}
+.orb-tag{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);display:flex;align-items:center;gap:.7em;font:600 .9rem var(--display);background:rgba(255,246,236,.85);backdrop-filter:blur(8px);border-radius:999px;padding:.25em .5em .25em 1.1em;white-space:nowrap;pointer-events:none}
+.swatches{display:flex}
+.sw{pointer-events:auto;width:32px;height:32px;border:0;background:none;padding:0;cursor:pointer;display:grid;place-items:center}
+.sw i{display:block;width:20px;height:20px;border-radius:50%;box-shadow:0 0 0 2px #fff;transition:transform .2s}
+.sw[aria-pressed="true"] i{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink);transform:scale(1.12)}
+.no-gl .orb-tag{display:none}
 @media (max-width:860px){
   .hero{padding-top:104px}
   .hero-grid{grid-template-columns:1fr}
@@ -195,7 +202,7 @@ footer a{color:#2D1F33}
   html{scroll-behavior:auto}
   .wave i{animation:none;height:50%}
   .js .msg.pending{opacity:1;transform:none}
-  .sky-afternoon,.sky-evening,.dot,.row{transition:none}
+  .sky,.dot,.row{transition:none}
 }
 </style>
 </head>
@@ -210,31 +217,34 @@ footer a{color:#2D1F33}
       <a class="t" href="#safety">Safety</a>
       <a class="t" href="#partner">Partner</a>
       <a class="t" href="#faq">FAQ</a>
-      <a class="btn btn-main" href="#join">Join the beta</a>
+      <a class="btn btn-main" href="#join">Get the app</a>
     </div>
   </div>
 </nav>
 
 <main id="top">
 
-  <section class="hero" id="heroSection" data-time="morning" aria-labelledby="h1">
-    <div class="sky sky-morning" aria-hidden="true"></div>
-    <div class="sky sky-afternoon" aria-hidden="true"></div>
-    <div class="sky sky-evening" aria-hidden="true"></div>
+  <section class="hero" id="heroSection" data-color="0" aria-labelledby="h1">
+    <div class="sky" data-i="0" aria-hidden="true"></div>
+    <div class="sky" data-i="1" aria-hidden="true"></div>
+    <div class="sky" data-i="2" aria-hidden="true"></div>
+    <div class="sky" data-i="3" aria-hidden="true"></div>
+    <div class="sky" data-i="4" aria-hidden="true"></div>
+    <div class="sky" data-i="5" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1 id="h1"><span class="ln">Someone who</span> <span class="ln">listens.</span> <span class="ln">And remembers.</span></h1>
         <p class="lead">SoftSoul is an AI friend you can text or call. Vent about your day, and Soul will ask how it went tomorrow.</p>
         <div class="cta-row">
-          <a class="btn btn-main" href="#join">Join the free beta</a>
+          <a class="btn btn-main" href="#join">Get the app</a>
           <a class="btn btn-line" href="#day">See a day with Soul</a>
         </div>
-        <p class="small">Free beta for iPhone and Android. 18+. No sign-up to start.</p>
+        <p class="small">Free to start. For iPhone. 18+. No sign-up needed.</p>
       </div>
       <div class="orb-stage" id="heroOrb">
-        <canvas class="orb-cv" id="orbHero" role="button" tabindex="0" aria-label="Soul, a glowing orb. Tap to change the time of day."></canvas>
+        <canvas class="orb-cv" id="orbHero" role="button" tabindex="0" aria-label="Soul, a glowing orb. Tap to change her colour."></canvas>
         <div class="orb-fallback" aria-hidden="true"></div>
-        <div class="orb-tag" id="orbTag" aria-live="polite">Morning. Tap Soul.</div>
+        <div class="orb-tag"><span id="orbName" aria-live="polite">Sunrise</span><span class="swatches" id="swatches" role="group" aria-label="Soul's colour"></span></div>
       </div>
     </div>
   </section>
@@ -352,11 +362,11 @@ footer a{color:#2D1F33}
         <p class="lead">Not answered here? Email <a href="mailto:softsoul.app@gmail.com">softsoul.app@gmail.com</a>.</p>
       </div>
       <div>
-        <details><summary>Is SoftSoul free?</summary><p>Yes, it's free to start, and the beta is free. There's an optional paid plan, Plus, for people who want more.</p></details>
+        <details><summary>Is SoftSoul free?</summary><p>Yes, it's free to start. There's an optional paid plan, Plus, for people who want more.</p></details>
         <details><summary>Is Soul a therapist?</summary><p>No. Soul is an AI friend, not therapy and not medical advice. If you're struggling, she'll encourage you to reach out to real people and will point you to crisis lines.</p></details>
         <details><summary>What does Soul remember, and who can see it?</summary><p>She remembers the things that matter in your chats, like names, plans and worries. You can see every memory in the app and delete any of it, or delete your whole account. Read the <a href="https://softsoul.app/privacy.html">privacy policy</a> for details.</p></details>
         <details><summary>Can I talk to her out loud?</summary><p>Yes. You can text, or start a voice call and just talk.</p></details>
-        <details><summary>Which phones does it work on?</summary><p>iPhone and Android. The beta is open now, and the App Store version is on its way.</p></details>
+        <details><summary>Which phones does it work on?</summary><p>iPhone, from the App Store. We're launching in the UK first.</p></details>
         <details><summary>Who is it for?</summary><p>Adults, 18 and over.</p></details>
       </div>
     </div>
@@ -365,12 +375,12 @@ footer a{color:#2D1F33}
   <section class="join" id="join" aria-labelledby="join-t">
     <div class="wrap">
       <h2 id="join-t">Meet Soul.</h2>
-      <p class="lead">It takes about 2 minutes to get started on iPhone or Android.</p>
+      <p class="lead">Download SoftSoul and say hi. It's free to start.</p>
       <div class="cta-row" style="justify-content:center">
-        <a class="btn btn-main" href="https://softsoul.app/">Join the free beta</a>
-        <span class="btn btn-soon" aria-disabled="true">App Store: coming soon</span>
+        <!-- TODO: replace this link with the real SoftSoul App Store URL (and the official Apple badge) after approval -->
+        <a class="btn btn-main" href="https://apps.apple.com/">Download on the App Store</a>
       </div>
-      <p class="small" style="color:#4A3466">No sign-up to start. 18+.</p>
+      <p class="small" style="color:#4A3466">For iPhone. Launching in the UK first. 18+.</p>
       <div class="orb-stage" id="joinOrb">
         <canvas class="orb-cv" id="orbJoin" aria-hidden="true"></canvas>
         <div class="orb-fallback" aria-hidden="true"></div>
@@ -387,7 +397,6 @@ footer a{color:#2D1F33}
       <a href="https://softsoul.app/support.html">Support</a>
       <a href="https://softsoul.app/privacy.html">Privacy</a>
       <a href="https://softsoul.app/terms.html">Terms</a>
-      <a href="https://softsoul.app/guide.html">Tester guide</a>
       <a href="#partner">Partner with us</a>
       <a href="mailto:softsoul.app@gmail.com">Contact</a>
     </div>
@@ -403,7 +412,7 @@ var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 var VERT = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
 var FRAG = [
 'precision highp float;',
-'uniform vec2 uRes;uniform float uTime;uniform vec2 uPtr;uniform float uMood;uniform float uPulse;',
+'uniform vec2 uRes;uniform float uTime;uniform vec2 uPtr;uniform vec3 uDeep;uniform vec3 uMid;uniform vec3 uLite;uniform float uPulse;',
 'float hash(vec3 p){p=fract(p*0.3183099+.1);p*=17.0;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}',
 'float noise(vec3 x){vec3 i=floor(x);vec3 f=fract(x);f=f*f*(3.0-2.0*f);',
 ' return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),',
@@ -417,15 +426,10 @@ var FRAG = [
 ' float R=.31*breathe;',
 ' vec2 c=vec2(uPtr.x*.012,.03+.012*sin(t*.7)+uPtr.y*.012);',
 ' vec2 p=uv-c; float r=length(p);',
-/* palette for morning / afternoon / evening */
-' vec3 d0=vec3(.88,.36,.22),m0=vec3(1.,.64,.36),l0=vec3(1.,.89,.67);',
-' vec3 d1=vec3(.80,.24,.17),m1=vec3(.97,.47,.22),l1=vec3(1.,.76,.46);',
-' vec3 d2=vec3(.42,.22,.66),m2=vec3(.90,.34,.60),l2=vec3(1.,.72,.80);',
-' float k1=smoothstep(0.,.5,uMood),k2=smoothstep(.5,1.,uMood);',
-' vec3 deep=mix(mix(d0,d1,k1),d2,k2);vec3 mid=mix(mix(m0,m1,k1),m2,k2);vec3 lite=mix(mix(l0,l1,k1),l2,k2);',
+' vec3 deep=uDeep;vec3 mid=uMid;vec3 lite=uLite;',
 /* ground shadow: she floats above the page */
 ' float sh=exp(-(uv.x*uv.x)/(R*R*.8)-((uv.y+.36)*(uv.y+.36))/(R*R*.04))*(.30-.05*sin(t*.9))*(1.-smoothstep(.18,.46,abs(uv.x)))*(1.-smoothstep(.38,.49,-uv.y));',
-' vec3 shCol=mix(vec3(.45,.18,.12),vec3(.30,.12,.38),uMood);',
+' vec3 shCol=deep*.35;',
 ' vec4 outc=vec4(0.);',
 /* outer glow */
 ' float gd=max(r-R,0.);',
@@ -453,7 +457,7 @@ var FRAG = [
 '  float core=exp(-(r*r)/(R*R)*2.6)*(.42+.2*beat);',
 '  vec3 col=base*(.52+.7*dif);',
 '  col=mix(col,deep*.8,(1.-dif)*.35*(1.-core));',
-'  col+=mix(vec3(1.,.9,.62),vec3(1.,.78,.84),uMood)*core;',
+'  col+=(lite*.55+vec3(.5,.45,.35))*core;',
 '  col+=lite*fres*.75;',
 '  col+=vec3(.78,.62,1.)*pow(1.-n.z,5.)*.16;',
 '  col+=vec3(1.,.98,.92)*spec;',
@@ -475,6 +479,18 @@ var FRAG = [
 '}'
 ].join('\n');
 
+var PALETTES=[
+ {n:'Sunrise',d:[.88,.36,.22],m:[1,.64,.36],l:[1,.89,.67]},
+ {n:'Ember',d:[.80,.24,.17],m:[.97,.47,.22],l:[1,.76,.46]},
+ {n:'Rose',d:[.72,.18,.42],m:[.95,.42,.62],l:[1,.78,.85]},
+ {n:'Violet',d:[.30,.16,.62],m:[.62,.40,.92],l:[.88,.80,1]},
+ {n:'Ocean',d:[.08,.30,.55],m:[.18,.62,.78],l:[.70,.92,.95]},
+ {n:'Meadow',d:[.14,.42,.30],m:[.42,.74,.50],l:[.86,.96,.70]},
+ {n:'Dusk',d:[.42,.22,.66],m:[.90,.34,.60],l:[1,.72,.80]}
+];
+function flat(p){return p.d.concat(p.m,p.l);}
+function rgb(c){return 'rgb('+Math.round(c[0]*255)+','+Math.round(c[1]*255)+','+Math.round(c[2]*255)+')';}
+
 function initOrb(cv, opts){
   opts = opts || {};
   var stage = cv.parentNode;
@@ -490,10 +506,11 @@ function initOrb(cv, opts){
   var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
   gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
   var loc=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-  var U={res:gl.getUniformLocation(pr,'uRes'),time:gl.getUniformLocation(pr,'uTime'),ptr:gl.getUniformLocation(pr,'uPtr'),mood:gl.getUniformLocation(pr,'uMood'),pulse:gl.getUniformLocation(pr,'uPulse')};
+  var U={res:gl.getUniformLocation(pr,'uRes'),time:gl.getUniformLocation(pr,'uTime'),ptr:gl.getUniformLocation(pr,'uPtr'),deep:gl.getUniformLocation(pr,'uDeep'),mid:gl.getUniformLocation(pr,'uMid'),lite:gl.getUniformLocation(pr,'uLite'),pulse:gl.getUniformLocation(pr,'uPulse')};
   gl.clearColor(0,0,0,0);
 
-  var state={mood:opts.mood||0,target:opts.mood||0,pulse:0,px:0,py:0,tx:0,ty:0,visible:true,t0:performance.now()-(opts.startAt||4000)};
+  var start=flat(PALETTES[opts.palette||0]);
+  var state={cur:start.slice(),tar:start.slice(),pulse:0,px:0,py:0,tx:0,ty:0,visible:true,t0:performance.now()-(opts.startAt||4000)};
   function resize(){
     var dpr=Math.min(window.devicePixelRatio||1,2), w=Math.round(cv.clientWidth*dpr);
     if(cv.width!==w){cv.width=w;cv.height=w;gl.viewport(0,0,w,w);}
@@ -501,13 +518,16 @@ function initOrb(cv, opts){
   function draw(now){
     resize();
     state.px+=(state.tx-state.px)*.08; state.py+=(state.ty-state.py)*.08;
-    state.mood+=(state.target-state.mood)*.05;
+    for(var k=0;k<9;k++){state.cur[k]+=(state.tar[k]-state.cur[k])*.07;}
     state.pulse*=.95; if(state.pulse<.003) state.pulse=0;
+    var c=state.cur;
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.uniform2f(U.res,cv.width,cv.height);
     gl.uniform1f(U.time,(now-state.t0)/1000);
     gl.uniform2f(U.ptr,state.px,state.py);
-    gl.uniform1f(U.mood,state.mood);
+    gl.uniform3f(U.deep,c[0],c[1],c[2]);
+    gl.uniform3f(U.mid,c[3],c[4],c[5]);
+    gl.uniform3f(U.lite,c[6],c[7],c[8]);
     gl.uniform1f(U.pulse,state.pulse);
     gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
   }
@@ -522,26 +542,33 @@ function initOrb(cv, opts){
   window.addEventListener('resize',function(){ if(reduce) draw(performance.now()); });
   return {
     pulse:function(){state.pulse=1; if(reduce) draw(performance.now());},
-    setMood:function(m){state.target=m; if(reduce){state.mood=m;draw(performance.now());}}
+    setPalette:function(i){state.tar=flat(PALETTES[i]); if(reduce){state.cur=state.tar.slice();draw(performance.now());}}
   };
 }
 
-/* Hero Soul: tap her to change the time of day */
+/* Hero Soul: tap her, or pick a colour */
 (function(){
-  var cv=document.getElementById('orbHero'), hero=document.getElementById('heroSection'), tag=document.getElementById('orbTag');
-  var names=['morning','afternoon','evening'], labels=['Morning. Tap Soul.','Afternoon. Tap Soul.','Evening. Tap Soul.'], moods=[0,.5,1], idx=0;
-  var orb=initOrb(cv,{mood:0,startAt:5200});
+  var cv=document.getElementById('orbHero'), hero=document.getElementById('heroSection'), nameEl=document.getElementById('orbName'), sw=document.getElementById('swatches');
+  var orb=initOrb(cv,{palette:0,startAt:5200});
   if(!orb) return;
-  function next(){
-    idx=(idx+1)%3; orb.setMood(moods[idx]); orb.pulse();
-    hero.setAttribute('data-time',names[idx]); tag.textContent=labels[idx];
+  var idx=0, btns=[];
+  function set(i){
+    idx=i; orb.setPalette(i); orb.pulse();
+    hero.setAttribute('data-color',i); nameEl.textContent=PALETTES[i].n;
+    btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===i)});
   }
-  cv.addEventListener('click',next);
-  cv.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();next();} });
+  for(var i=0;i<6;i++){(function(i){
+    var p=PALETTES[i], b=document.createElement('button'), d=document.createElement('i');
+    b.type='button'; b.className='sw'; b.setAttribute('aria-label',p.n); b.setAttribute('aria-pressed',i===0);
+    d.style.background='radial-gradient(circle at 35% 30%,'+rgb(p.l)+','+rgb(p.m)+' 55%,'+rgb(p.d)+')';
+    b.appendChild(d); b.addEventListener('click',function(){set(i)}); sw.appendChild(b); btns.push(b);
+  })(i);}
+  cv.addEventListener('click',function(){set((idx+1)%6)});
+  cv.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();set((idx+1)%6);} });
 })();
 
-/* Join Soul: it is evening, she is settled */
-initOrb(document.getElementById('orbJoin'),{mood:1,startAt:9000});
+/* Join Soul: settled into dusk colours */
+initOrb(document.getElementById('orbJoin'),{palette:6,startAt:9000});
 
 /* Voice wave for "Text or call" */
 (function(){
