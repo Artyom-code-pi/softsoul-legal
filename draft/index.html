@@ -460,10 +460,10 @@ var FRAG = [
 '  vec3 col=base*(.52+.7*dif);',
 '  col=mix(col,deep*.8,(1.-dif)*.35*(1.-core));',
 '  col+=(lite*.55+vec3(.5,.45,.35))*core;',
-'  col+=lite*fres*.38;',
+'  col+=lite*fres*.5;',
 '  col+=vec3(.78,.62,1.)*pow(1.-n.z,5.)*.08;',
 '  col+=vec3(1.,.98,.92)*spec;',
-'  float e=smoothstep(R,R*.86,r);',
+'  float e=smoothstep(R,R*.91,r);',
 '  outc=vec4(col*e+outc.rgb*(1.-e),e+outc.a*(1.-e));',
 ' }',
 /* motes: little fireflies of light that circle her */
