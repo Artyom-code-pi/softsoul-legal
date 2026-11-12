@@ -77,7 +77,7 @@ nav{position:sticky;top:10px;z-index:20;margin:10px auto 0;max-width:1076px;widt
 .small{font:500 .95rem var(--display);color:var(--ink-soft)}
 .orb-stage{position:relative;margin:-30px -70px -50px -30px}
 .orb-cv{display:block;width:100%;aspect-ratio:1;cursor:pointer;touch-action:pan-y}
-.orb-fallback{display:none;width:60%;aspect-ratio:1;margin:20% auto;border-radius:50%;background:radial-gradient(circle at 34% 28%,#FFF0C8 0,rgba(255,240,200,0) 38%),radial-gradient(circle at 50% 58%,#FFA070 0,#FF8A63 52%,#E8625A 100%);box-shadow:0 40px 80px rgba(240,120,90,.3),inset 0 -24px 50px rgba(200,70,80,.2)}
+.orb-fallback{display:none;width:60%;aspect-ratio:1;margin:20% auto;border-radius:50%;background:radial-gradient(circle at 34% 28%,#FFF0C8 0,rgba(255,240,200,0) 38%),radial-gradient(circle at 50% 58%,#F77B5A 0,#F2603F 52%,#E04A30 100%);box-shadow:0 40px 80px rgba(242,96,63,.3),inset 0 -24px 50px rgba(180,50,40,.2)}
 .no-gl .orb-cv{display:none}.no-gl .orb-fallback{display:block}
 @media (max-width:860px){
   .hero{padding-top:104px}
@@ -464,7 +464,7 @@ var FRAG = [
 ].join('\n');
 
 var PALETTES=[
- {d:[.96,.50,.40],m:[1,.68,.48],l:[1,.90,.70]},   /* Ember: Soul's colour (lighter) */
+ {d:[.88,.30,.20],m:[.95,.38,.25],l:[1,.62,.46]},   /* Ember: Soul's colour, matches the button coral #F2603F */
  {d:[.62,.45,.82],m:[.95,.58,.76],l:[1,.84,.90]}    /* Dusk: the orb at the bottom of the page */
 ];
 function flat(p){return p.d.concat(p.m,p.l);}
