@@ -467,7 +467,7 @@ var PALETTES=[
  {d:[.96,.50,.40],m:[1,.68,.48],l:[1,.90,.70]},   /* Ember: Soul's colour (lighter) */
  {d:[.62,.45,.82],m:[.95,.58,.76],l:[1,.84,.90]}    /* Dusk: the orb at the bottom of the page */
 ];
-PALETTES.push({d:[0.82, 0.5, 0.38],m:[0.89, 0.58, 0.44],l:[0.96, 0.76, 0.62]},{d:[0.82, 0.5, 0.38],m:[0.89, 0.58, 0.44],l:[0.96, 0.76, 0.62]},{d:[0.86, 0.46, 0.42],m:[0.95, 0.58, 0.52],l:[1, 0.78, 0.72]},{d:[0.84, 0.55, 0.36],m:[0.93, 0.66, 0.42],l:[1, 0.85, 0.62]},{d:[0.8, 0.48, 0.52],m:[0.9, 0.58, 0.62],l:[0.98, 0.78, 0.8]},{d:[0.9, 0.6, 0.46],m:[0.96, 0.7, 0.54],l:[1, 0.86, 0.72]},{d:[0.92, 0.56, 0.52],m:[1, 0.68, 0.62],l:[1, 0.86, 0.8]},{d:[0.9, 0.64, 0.44],m:[1, 0.76, 0.5],l:[1, 0.91, 0.7]},{d:[0.88, 0.58, 0.6],m:[0.97, 0.68, 0.7],l:[1, 0.86, 0.88]});
+PALETTES.push({d:[0.88, 0.3, 0.2],m:[0.95, 0.38, 0.25],l:[1, 0.62, 0.46]},{d:[0.88, 0.3, 0.2],m:[0.95, 0.38, 0.25],l:[1, 0.62, 0.46]},{d:[0.9, 0.3, 0.28],m:[0.97, 0.4, 0.33],l:[1, 0.64, 0.55]},{d:[0.9, 0.36, 0.18],m:[0.98, 0.48, 0.24],l:[1, 0.72, 0.44]},{d:[0.86, 0.28, 0.24],m:[0.94, 0.36, 0.3],l:[1, 0.6, 0.52]},{d:[0.92, 0.38, 0.26],m:[0.97, 0.47, 0.32],l:[1, 0.72, 0.58]},{d:[0.94, 0.38, 0.34],m:[1, 0.5, 0.4],l:[1, 0.74, 0.66]},{d:[0.94, 0.44, 0.24],m:[1, 0.57, 0.3],l:[1, 0.8, 0.52]},{d:[0.9, 0.36, 0.3],m:[0.97, 0.46, 0.38],l:[1, 0.72, 0.62]});
 function flat(p){return p.d.concat(p.m,p.l);}
 
 function initOrb(cv, opts){
@@ -572,8 +572,8 @@ initOrb(document.getElementById('orbJoin'),{palette:1,startAt:9000});
   show('normal');
 })();
 </script>
-<div id='fp'><button data-k='now'>Peach (now)</button><button data-k='app'>App orb</button><button data-k='alive'>App orb, alive</button><button data-k='light'>Lighter, alive</button></div><script>
-var SETS={"app": [2], "alive": [3, 4, 5, 6], "light": [7, 8, 9, 10]},ease={now:.07,app:.07,alive:.012,light:.012},timer;
+<div id='fp'><button data-k='now'>Peach (now)</button><button data-k='coral'>Button coral</button><button data-k='coralalive'>Coral, alive</button><button data-k='coralsoft'>Softer coral, alive</button></div><script>
+var SETS={"coral": [2], "coralalive": [3, 4, 5, 6], "coralsoft": [7, 8, 9, 10]},timer;
 document.querySelectorAll('#fp button').forEach(function(b){b.onclick=function(){
  clearInterval(timer);var k=b.dataset.k,o=window.__orb;if(!o)return;
  document.querySelectorAll('#fp button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
